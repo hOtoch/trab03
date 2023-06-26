@@ -1,100 +1,65 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 #include "utils.h"
 #include "file.h"
 
 
 int main(int argc, char* argv[]){
-
     // Nome do diretorio que contem as pastas dado nos argumentos
     char* dir = argv[1];
-    
 
-    /*  
-        ----- Vetor de Strings StopWords ----- 
-        
-        De inicio são alocadas 100 (maxCount) posicoes do vetor, 
-        caso existam mais do que maxCount palavras é realizado o Realloc e a continuação da leitura.
-        
-        A cada realloc maxSwCount é multiplicado por 2.
-    */
+    // ----- Vetor de Strings StopWords ----- 
+    
     int swCount = 0,maxSwCount = 1000;
     int *auxSwCount = &swCount;
     char* pathStopWords = strcat(strdup(dir),"/stopwords.txt");
-    char** stopWordsList;
+    String* pathStopWordsString = createString(pathStopWords);
+    String** stopWordsList;
     
-    stopWordsList = leArquivo(pathStopWords, maxSwCount, auxSwCount);
-
-    // for(int i = 0; i < swCount; i++){
-    //     printf("%s\n", stopWordsList[i]);
-    // }
+    stopWordsList = leArquivo(pathStopWordsString, maxSwCount, auxSwCount);
     
 
     // ----- Indexador ------
 
     char* pathIndex = strcat(strdup(dir),"/index.txt");
+    String* pathIndexString = createString(pathIndex);
+
     int maxPagesCount = 50, countPages = 0;
     int *auxCountPages = &countPages;
-    char** indexList;
+    String** indexList;
 
-    indexList = leArquivo(pathIndex, maxPagesCount, auxCountPages);
-   
-    // for(int i = 0; i < countPages; i++){
-    //     printf("%s\n", indexList[i]);
-    // }
-    
-
-
-    // ----- Leitura das buscas -----
-    char* pathSearches = strcat(strdup(dir),"/searches.txt");
-    FILE* searches = fopen(pathSearches, "r");
-
-    if (searches == NULL){
-        perror("Error: ");
-        exit(1);
-    }
-
-    char* pathAllPages = strcat(strdup(dir),"/pages/");
-    char* search = malloc(sizeof(char)*100);
-    char* line = malloc(sizeof(char)*1000);
+    indexList = leArquivo(pathIndexString, maxPagesCount, auxCountPages);
+    char* pathPage = strcat(strdup(dir),"/pages/");
+    char result[100];
+    char* line = (char*) malloc(sizeof(char)*100);
     size_t len = 0;
-    
-    while(!feof(searches)){
-        getline(&search, &len, searches);
+    char currentDirectory[1024];
+    for(int i = 0; i < countPages; i++){
+        strcpy(result, pathPage);
+        strcat(result, getString(indexList[i])); /* Definindo o caminho dos arquivos */
+        printf("%s\n", result);
+
+
         
-        for(int i = 0; i < countPages; i++){
-            char* pathPage = strcat(strdup(pathAllPages), indexList[i]);
-            // printf("%s\n", pathPage);
-            //FILE* page = fopen(pathPage, "r");
+        FILE* page = fopen(result, "r");
 
-            // if (page == NULL){
-            //     perror("Error: ");
-            //     exit(1);
-            // }
 
-            // while(!feof(page)){
-            //     getline(&line, &len, page);
-                
-            //     char* word = strtok(line, " ");
-            //     while(word != NULL){
-                    
-            //         if(verifyStopWord(word, stopWordsList, swCount)){
-            //             printf("%s ", indexList[i]);
-            //         }
-
-            //         word = strtok(NULL, " ");
-            //     }
-            // }
-
-            // fclose(page);
-
-        }
+        // if(verificaArquivo(page)){
+        //     while(!feof(page)){
+        //         getline(&line, &len, page);
+        //         printf("%s\n", line);
+        //     }
+        // }else{
+        //     perror("Error: ");
+        //     exit(1);
+        // }
 
     }
-    
-    free(search);
-    fclose(searches);
+
+
+
 
     return 0;    
 }

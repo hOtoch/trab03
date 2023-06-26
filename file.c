@@ -1,26 +1,23 @@
 #include "file.h"
 
 
-
-char** leArquivo(char* path, int maxCount, int *count){
-    char** list = (char**)malloc(maxCount *sizeof(char*));
-    char* line = malloc(sizeof(char)*1000);
+String** leArquivo(String* path, int maxCount, int *count){
+    String** list = (String**)malloc(maxCount *sizeof(String*));
+    char* line = (char*) malloc(sizeof(char)*100);
     size_t len = 0;
-    FILE* arq = fopen(path, "r");
+    FILE* arq = fopen(getString(path), "r");
 
     if(verificaArquivo(arq)){
         while(!feof(arq)){
-            
-            list[*count] = malloc(sizeof(char)*100);
             getline(&line, &len, arq);
-            strcpy(list[*count], line);
+            list[*count] = createString(line);
+        
             // printf("%s\n", list[i]);
             *count = *count + 1;
 
             if(*count == maxCount){               
                 maxCount *= 2;
-                list = realloc(list, sizeof(char*)*maxCount);
-                printf("Deu realloc\n");
+                list = realloc(list, sizeof(String*)*maxCount);
             }
            
         }
@@ -38,7 +35,8 @@ int verificaArquivo(FILE* arquivo){
     if(arquivo == NULL){
         perror("Error: ");
         return 0;
+    }else{
+        return 1;
     }
 
-    return 1;
 }
