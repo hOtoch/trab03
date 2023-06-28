@@ -59,6 +59,11 @@
     "string_view": "c",
     "initializer_list": "c",
     "utility": "c",
-    "sstream": "c"
+    "sstream": "c",
+    "*.tcc": "c",
+    "memory": "c",
+    "istream": "c",
+    "functional": "c",
+    "tuple": "c"
   }
 }

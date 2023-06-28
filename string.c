@@ -27,6 +27,16 @@ int compare(String *s, String *t) {
     return compare_from(s, t, 0);
 }
 
+int compareQs(const void* a, const void* b) {
+    const String* strA = *(const String**)a;
+    const String* strB = *(const String**)b;
+
+    String tempA = *strA;  // Cópia mutável de strA
+    String tempB = *strB;  // Cópia mutável de strB
+
+    return compare_from(&tempA, &tempB, 0);
+}
+
 char* getString(String* string){
     return string->str;
 }

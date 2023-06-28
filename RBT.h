@@ -6,6 +6,8 @@
 
 typedef struct node RBT;
 
+RBT* create_node(String* key, Page* val, int color);
+
 int is_red(RBT* node);
 
 Page** searchRBT(RBT* n, String* key);
@@ -15,5 +17,9 @@ RBT* rotate_left(RBT* h);
 RBT* rotate_right(RBT* h);
 
 void flip_colors(RBT* h);
+
+RBT* RBT_insert(RBT *h, String* key, Page* val);
+
+void printRBT(RBT* node);
 
 #endif

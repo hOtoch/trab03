@@ -10,6 +10,8 @@ String* createString(char* str);
 
 int compare_from(String *s, String *t, int d);
 
+int compareQs(const void* a, const void* b);
+
 int compare(String *s, String *t);
 
 char* getString(String* string);

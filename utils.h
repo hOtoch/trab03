@@ -4,5 +4,7 @@
 
 int verifyStopWord(char* word, char** stopWordsList, int countStopWords);
 
+void removeNewLine(char* str);
+   
 
 #endif
