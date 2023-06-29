@@ -9,8 +9,9 @@ struct string{
 
 String* createString(char* str){
     String* string = (String*) malloc(sizeof(String));
-    string->str = strdup(str);
     string->size = strlen(str);
+    string->str = (char*) malloc(sizeof(char)*(string->size+1));
+    strcpy(string->str, str);
     return string;
 }
 
