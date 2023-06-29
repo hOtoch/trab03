@@ -84,12 +84,19 @@ int main(int argc, char* argv[]){
                 getline(&line, &len, filePage);
                 termo = strtok(line, " ");
                 while(termo != NULL){
-                    // printf("%s\n", termo);
+                    printf("%s\n", termo);
 
                     // Verificar se eh stopword (busca binaria)
+                    int index = binarySearch(stopWordsList, 0, swCount, termo);
+                    if(index != -1){
+                        termo = strtok(NULL, " ");
+                        printf("StopWord: %s\n", termo);
+                        continue;
+                    }
                     root = RBT_insert(root, createString(termo), pages[i]);
                     
                     termo = strtok(NULL, " ");
+
                 }          
 
             }
@@ -102,6 +109,8 @@ int main(int argc, char* argv[]){
 
         break;
     }
+
+
 
     
 
