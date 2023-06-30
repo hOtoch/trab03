@@ -10,7 +10,11 @@ RBT* create_node(String* key, Page* val, int color);
 
 int is_red(RBT* node);
 
-Page** searchRBT(RBT* n, String* key);
+int getCountValues(RBT* node);
+
+Page** getValues(RBT* node);
+
+RBT* searchRBT(RBT* n, String* key);
 
 RBT* rotate_left(RBT* h);
 

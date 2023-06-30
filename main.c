@@ -127,9 +127,14 @@ int main(int argc, char* argv[]){
 
 
         fclose(filePage);
-    }
+    }//22017-8.txt 27742-8.txt 17160-8.txt 25911-8.txt 30380.txt 19953-8.txt 1371.txt 14101.txt 15630-8.txt
 
     printRBT(root);
+    RBT* resultRbt = searchRBT(root, createString("work\n"));
+
+    for(int i = 0; i < getCountValues(resultRbt); i++){
+        printf("%s ", getString(getNome(getValues(resultRbt)[i])));
+    }
 
     //Liberação de memória -----
     for (int i = 0; i < swCount; i++) {

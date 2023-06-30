@@ -22,6 +22,16 @@ RBT* create_node(String* key, Page* val,int color){
     return node;
 }
 
+Page** getValues(RBT* node){
+    if(node == NULL) return NULL;
+    return node->value;
+}
+
+int getCountValues(RBT* node){
+    if(node == NULL) return 0;
+    return node->countValues;
+}
+
 
 
 int is_red(RBT* node){
@@ -30,10 +40,10 @@ int is_red(RBT* node){
 }
 
 
-Page** searchRBT(RBT* n, String* key){
+RBT* searchRBT(RBT* n, String* key){
     if(n == NULL) return NULL;
     int cmp = compare(key, n->key);
-    if(cmp == 0) return n->value;
+    if(cmp == 0) return n;
     else if(cmp < 0) return searchRBT(n->left, key);
     else return searchRBT(n->right, key);
 }
@@ -93,9 +103,9 @@ RBT* RBT_insert(RBT *h, String* key, Page* val) {
             h->countValues++;
         }
         
-        for(int i = 0; i < h->countValues; i++){
-            printf("value[%d] = %s\n", i, getString(getNome(h->value[i])));
-        }
+        // for(int i = 0; i < h->countValues; i++){
+        //     printf("value[%d] = %s\n", i, getString(getNome(h->value[i])));
+        // }
         
 
     }
