@@ -64,6 +64,7 @@
     "memory": "c",
     "istream": "c",
     "functional": "c",
-    "tuple": "c"
+    "tuple": "c",
+    "string.h": "c"
   }
 }

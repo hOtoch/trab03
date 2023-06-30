@@ -7,8 +7,6 @@
 
 int verifyStopWord(char* word, char** stopWordsList, int countStopWords);
 
-void removeNewLine(char* str);
-
 int binarySearch(String** arr, int left, int right, char* key);
    
 

@@ -1,5 +1,6 @@
 #include "file.h"
-
+#include <string.h>
+#include "utils.h"
 
 String** leArquivo(String* path, int maxCount, int *count){
     String** list = (String**)malloc(maxCount *sizeof(String*));
@@ -10,7 +11,9 @@ String** leArquivo(String* path, int maxCount, int *count){
     if(verificaArquivo(arq)){
         while(!feof(arq)){
             getline(&line, &len, arq);
-            list[*count] = createString(line);
+            String* auxLine = createString(line);
+            removeNewLine(auxLine);
+            list[*count] = auxLine;
         
             // printf("%s\n", list[i]);
             *count = *count + 1;

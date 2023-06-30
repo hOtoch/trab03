@@ -3,7 +3,7 @@
 #include "utils.h"
 
 struct page {
-    char* nome;
+    String* nome;
     int countLinks;
     String** links;
 };
@@ -11,11 +11,11 @@ struct page {
 Page** createPages(char* path, int countPages) {
     char* line = (char*) malloc(sizeof(char) * 100);
     size_t len = 0;
-    removeNewLine(path);
+    removeNewLine(createString(path));
     FILE* graph = fopen(path, "r");
 
     char* token;
-    char* nome = (char*) malloc(sizeof(char) * 100);  // Allocate memory for nome
+    char* nome = (char*) malloc(sizeof(char) * 100);  
 
     int countLinks;
 
@@ -41,13 +41,13 @@ Page** createPages(char* path, int countPages) {
         pages[i] = page;
     }
     fclose(graph);
-    free(nome);  // Free the allocated memory for nome
+    free(nome); 
     free(line);
     return pages;
 }
 
 
-char* getNome(Page* page){
+String* getNome(Page* page){
     return page->nome;
 }
 
@@ -65,7 +65,7 @@ Page* getPage(Page** page, int i){
 
 Page* newPage(char* nome, int countLinks){
     Page* page = (Page*)malloc(sizeof(Page));
-    page->nome = strdup(nome);
+    page->nome = createString(nome);
     page->countLinks = countLinks;
     page->links = (String**)malloc(sizeof(String*)*countLinks);
     return page;

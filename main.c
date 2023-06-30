@@ -24,12 +24,12 @@ int main(int argc, char* argv[]){
    //printf("%s\n", getString(pathStopWordsString));
     
     stopWordsList = leArquivo(pathStopWordsString, maxSwCount, auxSwCount);
-    //printf("%d\n", swCount);
+    // printf("%d\n", swCount);
 
     qsort(stopWordsList, swCount, sizeof(String*), compareQs);
 
     // for(int i = 0; i < swCount; i++){
-    //     printf("%s\n", getString(stopWordsList[i]));
+    //     printf("%d - %s\n", i,getString(stopWordsList[i]));
     // }
 
     
@@ -80,7 +80,7 @@ int main(int argc, char* argv[]){
         strcpy(result, pathPage);
         strcat(result, getString(indexList[i])); /* Definindo o caminho dos arquivos */
         
-        removeNewLine(result);
+        removeNewLine(createString(result));
 
         //printf("entrou no for %s\n", result);
         FILE* filePage = fopen(result, "r");
@@ -88,24 +88,35 @@ int main(int argc, char* argv[]){
         if(verificaArquivo(filePage)){
             while(!feof(filePage)){
                 getline(&line, &len, filePage);
+
+                // printf("\n\nLINHA: %s\n\n", line);
                 termo = strtok(line, " ");
+                
                 while(termo != NULL){
+                    /* Remove o \n e transforma todas as letras em lowcase */
+                    String* termoString = createString(termo);
+                    
+                    removeNewLine(termoString);
+                    toLowerCase(termoString);
+                    
+                    // printf("Termo: %s\n", getString(termoString));
+                    
 
                     // Verificar se eh stopword (busca binaria)
-                    int index = binarySearch(stopWordsList, 0, swCount, termo);
-                    printf("index: %d\n", index);
-                    if(index != -1){
-                        printf("entrou no if\n");
-                        termo = strtok(NULL, " ");
-                        continue;
-                        printf("entrou no if\n");
+                    int index = binarySearch(stopWordsList, 0, swCount-1, getString(termoString));
+                
+                    
+                    if(index == -1){
+                        // printf("--- Termo <%s> nao eh stopword ---\n", getString(termoString));
+                        root = RBT_insert(root, termoString, pages[i]);// Nao ta inserindo certo 
+                       
+                       
+                    }else{
+                        // printf("--- Termo <%s> eh stopword ---\n", getString(termoString));
                     }
-                    printf("saiu do if\n");
-                    root = RBT_insert(root, createString(termo), pages[i]);// Nao ta inserindo certo
-                    printf("inseriu\n");
                     
                     termo = strtok(NULL, " ");
-
+                    // printf("--------------------------------------------------------------------\n");
                 }          
 
             }
@@ -114,10 +125,11 @@ int main(int argc, char* argv[]){
             exit(1); 
         }
 
-        //printRBT(root);
 
-        break;
+        fclose(filePage);
     }
+
+    printRBT(root);
 
     //Liberação de memória -----
     for (int i = 0; i < swCount; i++) {
@@ -125,17 +137,17 @@ int main(int argc, char* argv[]){
     }
     free(stopWordsList);
 
-    // for (int i = 0; i < countPages; i++) {
-    //     freePage(pages[i]);
-    // }
-    // free(pages);
+    for (int i = 0; i < countPages; i++) {
+        freePage(pages[i]);
+    }
+    free(pages);
 
-    // for (int i = 0; i < countPages; i++) {
-    //     freeString(indexList[i]);
-    // }
-    // free(indexList);
+    for (int i = 0; i < countPages; i++) {
+        freeString(indexList[i]);
+    }
+    free(indexList);
 
-    free(dir);
+    // free(dir);
     free(pathStopWords);
     freeString(pathStopWordsString);
     free(pathIndex);

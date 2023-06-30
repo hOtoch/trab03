@@ -1,6 +1,6 @@
 #include "string.h"
 #include <string.h>
-
+#include <ctype.h>
 
 struct string{
     char* str;
@@ -15,8 +15,26 @@ String* createString(char* str){
     return string;
 }
 
+void toLowerCase(String* str) {
+    int i = 0;
+    char* string = getString(str);
+    while (string[i]) {
+        string[i] = tolower(string[i]);
+        i++;
+    }
+}
+
+void removeNewLine(String* str) {
+    char* string = getString(str);
+    if (getSize(str) > 0 && string[getSize(str) - 1] == '\n') {
+        string[getSize(str) - 1] = '\0';
+    }
+}
+
+
 int compare_from(String *s, String *t, int d) {
     int min = s->size < t->size ? s->size : t->size;
+
     for (int i = d; i < min; i++) {
         if (s->str[i] < t->str[i]) { return -1; }
         if (s->str[i] > t->str[i]) { return 1; }

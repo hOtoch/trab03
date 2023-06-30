@@ -8,6 +8,10 @@ typedef struct string String;
 
 String* createString(char* str);
 
+void toLowerCase(String* str);
+
+void removeNewLine(String* str);
+
 int compare_from(String *s, String *t, int d);
 
 int compareQs(const void* a, const void* b);

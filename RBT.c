@@ -13,7 +13,8 @@ struct node{
 RBT* create_node(String* key, Page* val,int color){
     RBT* node = (RBT*) malloc(sizeof(RBT));
     node->key = key;
-    node->countValues = 0;
+    node->countValues = 1;
+    node->value = (Page**) malloc(sizeof(Page*)*100);
     node->value[0] = val;
     node->color = color;
     node->left = NULL;
@@ -65,7 +66,7 @@ RBT* RBT_insert(RBT *h, String* key, Page* val) {
     // Insert at bottom and color it red.
     // printf("Termo %s entrou na arvore\n", getString(key));
     if (h == NULL) {
-        printf("criando nó %s\n", getString(key));
+        // printf("criando nó %s com value: %s\n", getString(key), getString(getNome(val)));
         return create_node(key, val, 1);
     }
     int cmp = compare(key, h->key);
@@ -83,8 +84,20 @@ RBT* RBT_insert(RBT *h, String* key, Page* val) {
 
     else /*cmp == 0*/ {
         // printf("Termo %s ja existe\n", getString(key));
-        h->value[h->countValues] = val;
-        h->countValues++;
+        if(compare(getNome(h->value[h->countValues-1]), getNome(val)) == 0){
+            // printf("O valor %s ja existe\n", getString(getNome(val)) );
+            return h;
+            
+        }else{
+            h->value[h->countValues] = val;
+            h->countValues++;
+        }
+        
+        for(int i = 0; i < h->countValues; i++){
+            printf("value[%d] = %s\n", i, getString(getNome(h->value[i])));
+        }
+        
+
     }
     // Lean left.
     if (is_red(h->right) && !is_red(h->left)) { h = rotate_left(h); }
@@ -104,7 +117,7 @@ void printRBT(RBT* node) {
 
     printf("%s : ", getString(node->key));
     for (int i = 0; i < node->countValues; i++) {
-        printf("%s", getNome(node->value[i]));
+        printf("%s", getString(getNome(node->value[i])) );
         if (i < node->countValues - 1) {
             printf(", ");
         }

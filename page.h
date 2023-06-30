@@ -7,7 +7,7 @@
 
 typedef struct page Page;
 Page** createPages(char* path,int countPages);
-char* getNome(Page* page);
+String* getNome(Page* page);
 int getCountLinks(Page* page);
 String** getLinks(Page* page);
 Page* newPage(char* nome, int countLinks);
