@@ -13,6 +13,7 @@ String** getLinks(Page* page);
 Page* newPage(char* nome, int countLinks);
 Page* getPage(Page** page, int i);
 void freePage(Page* page);
+void freePages(Page** pages, int countPages);
 
 
 #endif

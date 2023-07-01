@@ -71,6 +71,13 @@ Page* newPage(char* nome, int countLinks){
     return page;
 }
 
+void freePages(Page** pages, int countPages){
+    for(int i = 0; i < countPages; i++){
+        freePage(pages[i]);
+    }
+    free(pages);
+}
+
 void freePage(Page* page){
     free(page->nome);
     free(page->links);

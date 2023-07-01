@@ -26,9 +26,15 @@ void toLowerCase(String* str) {
 
 void removeNewLine(String* str) {
     char* string = getString(str);
-    if (getSize(str) > 0 && string[getSize(str) - 1] == '\n') {
+    if (getSize(str) > 0 && string[getSize(str) - 1] == '\n') {  
         string[getSize(str) - 1] = '\0';
+        setSize(str, getSize(str) - 1);
     }
+}
+
+int setSize(String* str, int size){
+    str->size = size;
+    return 0;
 }
 
 
@@ -62,6 +68,13 @@ char* getString(String* string){
 
 int getSize(String* string){
     return string->size;
+}
+
+void freeListString(String** list, int size){
+    for(int i = 0; i < size; i++){
+        freeString(list[i]);
+    }
+    free(list);
 }
 
 

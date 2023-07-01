@@ -12,6 +12,7 @@ struct node{
 
 RBT* create_node(String* key, Page* val,int color){
     RBT* node = (RBT*) malloc(sizeof(RBT));
+    removeNewLine(key);
     node->key = key;
     node->countValues = 1;
     node->value = (Page**) malloc(sizeof(Page*)*100);
@@ -48,6 +49,15 @@ RBT* searchRBT(RBT* n, String* key){
     else return searchRBT(n->right, key);
 }
 
+void searchValues(RBT* root, char* key){
+    RBT* resultRbt = searchRBT(root, createString("work\n"));
+
+    for(int i = 0; i < getCountValues(resultRbt); i++){
+        printf("%s ", getString(getNome(getValues(resultRbt)[i])));
+    }
+}
+
+
 RBT* rotate_left(RBT* h){
     RBT* x = h->right;
     h->right = x->left;
@@ -79,6 +89,7 @@ RBT* RBT_insert(RBT *h, String* key, Page* val) {
         // printf("criando nó %s com value: %s\n", getString(key), getString(getNome(val)));
         return create_node(key, val, 1);
     }
+    
     int cmp = compare(key, h->key);
     // printf("comparando %s com %s\n : %d\n", getString(key), getString(h->key), cmp);
 

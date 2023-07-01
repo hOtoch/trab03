@@ -16,6 +16,8 @@ Page** getValues(RBT* node);
 
 RBT* searchRBT(RBT* n, String* key);
 
+void searchValues(RBT* root, char* key);
+
 RBT* rotate_left(RBT* h);
 
 RBT* rotate_right(RBT* h);
