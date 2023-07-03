@@ -1,5 +1,5 @@
 #include "utils.h"
-
+#include "page.h"
 
 int verifyStopWord(char* word, char** stopWordsList, int countStopWords){
     int i;
@@ -35,5 +35,23 @@ int binarySearch(String** arr, int left, int right, char* key) {
     }
     
     return -1;
+}
+
+void calculatePageRank(Pages** pages, int countPages){
+    double alfa = 0.85;
+    double PR;
+    for(int i = 0 ; i < countPages; i++){
+        if(i == 0){
+            setPageRank(pages[i], 1.0/countPages);
+        }else{
+            PR = (1-alfa)/countPages;
+            
+        }
+        
+    }
+
+
+
+
 }
 

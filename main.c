@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
     Page **pages = createPages(pathGraph, countPages);
 
     // for (int i = 0; i < countPages; i++) {
-    //     printf("%s : ", getNome(pages[i]));
+    //     printf("%s : ", getString(getNome(pages[i])));
     //     for (int j = 0; j < getCountLinks(pages[i]); j++) {
     //         printf("%s ", getString(getLinks(pages[i])[j]));
     //     }
@@ -127,7 +127,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    printRBT(root);
+    // printRBT(root);
     
 
     // Liberação de memória -----
