@@ -12,6 +12,7 @@ Page* getPageByName(Page** pages, int countPages, const char* nome);
 int getCountInLinks(Page* page);
 int getCountOutLinks(Page* page);
 TST* getLinks(Page* page);
+void setLinks(Page* page, TST* links);
 void setCountOutLinks(Page* page, int countOutLinks);
 void setCountInLinks(Page* page, int countInLinks);
 Page* newPage(char* nome, int countLinks);

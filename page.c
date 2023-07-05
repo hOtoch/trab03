@@ -11,6 +11,21 @@ struct page {
     TST* links;
 };
 
+// void calculatePageRank(TST* pages, String** namePages, int countPages){
+//     int firstIteration = 1;
+//     double alfa = 0.85;
+
+//     while(1){
+//         if(firstIteration){
+//             for(int i = 0; i < countPages; i++){
+            
+//             }
+//         }
+//     }
+        
+// }
+
+
 
 String* getNome(Page* page){
     return page->nome;
@@ -18,6 +33,10 @@ String* getNome(Page* page){
 
 TST* getLinks(Page* page){
     return page->links;
+}
+
+void setLinks(Page* page, TST* links){
+    page->links = links;
 }
 
 int getCountOutLinks(Page* page){
@@ -51,6 +70,7 @@ void setPageRank(Page* page, double pageRank){
 Page* newPage(char* nome, int countLinks){
     Page* page = (Page*)malloc(sizeof(Page));
     page->nome = createString(nome);
+    page->links = NULL;
     page->pageRank = 0;
     page->countInLinks = 0;
     page->countOutLinks = countLinks;

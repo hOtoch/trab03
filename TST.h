@@ -14,6 +14,8 @@ void* getValues(TST* node);
 
 TST* create_node();
 
+int searchNGetCountValues(TST* t, String* key);
+
 TST* rec_search(TST* t, String* key, int d);
 
 void* TST_search(TST* t, String* key);
