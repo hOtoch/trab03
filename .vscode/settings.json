@@ -65,6 +65,10 @@
     "istream": "c",
     "functional": "c",
     "tuple": "c",
-    "string.h": "c"
+    "string.h": "c",
+    "typeinfo": "c",
+    "utils.h": "c",
+    "algorithm": "c",
+    "page.h": "c"
   }
 }

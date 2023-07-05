@@ -4,13 +4,16 @@
 #include <string.h>
 #include <stdlib.h>
 #include "string.h"
+#include "TST.h"
 
 typedef struct page Page;
-Page** createPages(char* path,int countPages);
 String* getNome(Page* page);
 Page* getPageByName(Page** pages, int countPages, const char* nome);
-int getCountLinks(Page* page);
-String** getLinks(Page* page);
+int getCountInLinks(Page* page);
+int getCountOutLinks(Page* page);
+TST* getLinks(Page* page);
+void setCountOutLinks(Page* page, int countOutLinks);
+void setCountInLinks(Page* page, int countInLinks);
 Page* newPage(char* nome, int countLinks);
 Page* getPage(Page** page, int i);
 double getPageRank(Page* page);

@@ -6,13 +6,13 @@
 
 typedef struct node RBT;
 
-RBT* create_node(String* key, Page* val, int color);
+RBT* create_noderbt(String* key, Page* val, int color);
 
 int is_red(RBT* node);
 
-int getCountValues(RBT* node);
+int getCountValuesrbt(RBT* node);
 
-Page** getValues(RBT* node);
+Page** getValuesrbt(RBT* node);
 
 RBT* searchRBT(RBT* n, String* key);
 

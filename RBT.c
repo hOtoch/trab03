@@ -10,7 +10,7 @@ struct node{
     struct node* right;
 };
 
-RBT* create_node(String* key, Page* val,int color){
+RBT* create_noderbt(String* key, Page* val,int color){
     RBT* node = (RBT*) malloc(sizeof(RBT));
     removeNewLine(key);
     node->key = key;
@@ -23,12 +23,12 @@ RBT* create_node(String* key, Page* val,int color){
     return node;
 }
 
-Page** getValues(RBT* node){
+Page** getValuesrbt(RBT* node){
     if(node == NULL) return NULL;
     return node->value;
 }
 
-int getCountValues(RBT* node){
+int getCountValuesrbt(RBT* node){
     if(node == NULL) return 0;
     return node->countValues;
 }
@@ -52,8 +52,8 @@ RBT* searchRBT(RBT* n, String* key){
 void searchValues(RBT* root, char* key){
     RBT* resultRbt = searchRBT(root, createString("work\n"));
 
-    for(int i = 0; i < getCountValues(resultRbt); i++){
-        printf("%s ", getString(getNome(getValues(resultRbt)[i])));
+    for(int i = 0; i < getCountValuesrbt(resultRbt); i++){
+        printf("%s ", getString(getNome(getValuesrbt(resultRbt)[i])));
     }
 }
 
@@ -87,7 +87,7 @@ RBT* RBT_insert(RBT *h, String* key, Page* val) {
     // printf("Termo %s entrou na arvore\n", getString(key));
     if (h == NULL) {
         // printf("criando nó %s com value: %s\n", getString(key), getString(getNome(val)));
-        return create_node(key, val, 1);
+        return create_noderbt(key, val, 1);
     }
     
     int cmp = compare(key, h->key);
