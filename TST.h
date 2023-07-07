@@ -8,6 +8,12 @@ TST* rec_insert(TST* t, String* key, void* val, int d);
 
 TST* TST_insert(TST* t, String* key, void* val);
 
+TST* getRight(TST* node);
+
+TST* getLeft(TST* node);
+
+TST* getMid(TST* node);
+
 int getCountValues(TST* node);
 
 void* getValues(TST* node);

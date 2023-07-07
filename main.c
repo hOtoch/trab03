@@ -113,67 +113,20 @@ int main(int argc, char *argv[])
     // ----- Indexador ------
 
     char *pathPage = strcat(dirAux, "/pages/");
-    char result[100];
-    TST *root = NULL;
+   
+    TST *indexadorTST = NULL;
 
-    for (int i = 0; i < countPages; i++)
-    {
-        strcpy(result, pathPage);
-        strcat(result, getString(indexList[i])); /* Definindo o caminho dos arquivos */
-        removeNewLine(createString(result));
+    indexadorTST = searchAndIndex(indexadorTST, pagesTST, pathPage, stopWordsList, swCount);
 
-        Page** pageArray = TST_search(pagesTST, indexList[i]);
-        Page* page = pageArray[0];
-
-        FILE *filePage = fopen(result, "r");
-
-        if (verificaArquivo(filePage))
-        {
-            while (!feof(filePage))
-            {
-                getline(&line, &len, filePage);
-
-                termo = strtok(line, " ");
-                while (termo != NULL)
-                {
-                    /* Remove o \n e transforma todas as letras em lowcase */
-                    String *termoString = createString(termo);
-                    toLowerCase(termoString);
-                    removeNewLine(termoString);
-
-                    // printf("Termo: %s", getString(termoString));
-
-                    // Verificar se eh stopword (busca binaria)
-                    int index = binarySearch(stopWordsList, 0, swCount - 1, getString(termoString));
-
-                    if (index == -1)
-                    {
-                        // printf("--- Termo <%s> nao eh stopword ---\n", getString(termoString));
-                        // root = RBT_insert(root, termoString, pages[i]); 
-                          
-                        root = TST_insert(root, termoString,(Page*) page); // TA INCLUINDO PAGINAS DUPLICADAS
-                        
-                    }
-                    else
-                    {
-                        // printf("--- Termo <%s> eh stopword ---\n", getString(termoString));
-                    }
-
-                    termo = strtok(NULL, " ");
-                    // printf("--------------------------------------------------------------------\n");
-                }
-            }
-            fclose(filePage); 
-        }
-        else
-            {
-            perror("Error: ");
-            exit(1);
-        }
-        
+    if(indexadorTST == NULL){
+        printf("TST NULA\n");
     }
-    // Page** resultPages = TST_search(root, createString("man"));
-    // int countValuesPages = searchNGetCountValues(root,createString("man"));
+
+
+    searchAndPrint(indexadorTST);
+    
+    // Page** resultPages = TST_search(indexadorTST, createString("man"));
+    // int countValuesPages = searchNGetCountValues(indexadorTST,createString("man"));
     // printf("COUNT VALUES: %d\n", countValuesPages);
     // for(int i = 0; i < countValuesPages; i++){
     //     printf("NOME RESULT PAGE: %s\n", getString(getNome(resultPages[i])));

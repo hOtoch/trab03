@@ -17,6 +17,21 @@ TST* create_node() {
     return t;
 }
 
+TST* getMid(TST* node){
+    if(node == NULL) return NULL;
+    return node->mid;
+}
+
+TST* getRight(TST* node){
+    if(node == NULL) return NULL;
+    return node->right;
+}
+
+TST* getLeft(TST* node){
+    if(node == NULL) return NULL;
+    return node->left;
+}
+
 int getCountValues(TST* node){
     if(node == NULL) return 0;
     return node->countValues;
