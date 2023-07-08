@@ -68,6 +68,7 @@ int main(int argc, char *argv[])
 
         Page** p1 = TST_search(pagesTST, nameP1);
         setCountOutLinks(p1[0], countOutLinks); // Atualizando o countOutLinks da pagina
+        setPageRank(p1[0], 1/countPages);
 
         for(int i = 0; i < countOutLinks; i++){
             termo = strtok(NULL, " ");
@@ -118,19 +119,25 @@ int main(int argc, char *argv[])
 
     indexadorTST = searchAndIndex(indexadorTST, pagesTST, pathPage, stopWordsList, swCount);
 
-    if(indexadorTST == NULL){
-        printf("TST NULA\n");
+    // if(indexadorTST == NULL){
+    //     printf("TST NULA\n");
+    // }else{
+    //     printf("aaaa");
+    // }
+
+
+    //searchAndPrint(indexadorTST);
+    
+    Page** resultPages = TST_search(indexadorTST, createString("world"));
+    int countValuesPages = searchNGetCountValues(indexadorTST,createString("world"));
+    printf("COUNT VALUES: %d\n", countValuesPages);
+    for(int i = 0; i < countValuesPages; i++){
+        printf("NOME RESULT PAGE: %s\n", getString(getNome(resultPages[i])));
     }
 
 
-    searchAndPrint(indexadorTST);
-    
-    // Page** resultPages = TST_search(indexadorTST, createString("man"));
-    // int countValuesPages = searchNGetCountValues(indexadorTST,createString("man"));
-    // printf("COUNT VALUES: %d\n", countValuesPages);
-    // for(int i = 0; i < countValuesPages; i++){
-    //     printf("NOME RESULT PAGE: %s\n", getString(getNome(resultPages[i])));
-    // }
+
+    // -------- Page Rank ----------
 
 
 
