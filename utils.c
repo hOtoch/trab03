@@ -41,13 +41,13 @@ TST* searchAndIndex(TST * indexTST, TST *pages, char *pathPage, String **stopWor
         {
             Page **pagesResult = (Page **)getValues(pages);
             Page *pageResult = pagesResult[0];
-            printf("Page: %s\n", getString(getNome(pageResult)));
+            // printf("Page: %s\n", getString(getNome(pageResult)));
             indexTST = indexador(indexTST, pageResult, pathPage, stopWordsList, swCount);
 
         }
-        searchAndIndex(indexTST, getLeft(pages), pathPage, stopWordsList, swCount);
-        searchAndIndex(indexTST, getMid(pages), pathPage, stopWordsList, swCount);
-        searchAndIndex(indexTST, getRight(pages), pathPage, stopWordsList, swCount);
+        indexTST = searchAndIndex(indexTST, getLeft(pages), pathPage, stopWordsList, swCount);
+        indexTST = searchAndIndex(indexTST, getMid(pages), pathPage, stopWordsList, swCount);
+        indexTST = searchAndIndex(indexTST, getRight(pages), pathPage, stopWordsList, swCount);
 
     }
     return indexTST;
@@ -116,6 +116,71 @@ TST* indexador(TST *indexTST, Page *page, char *pathPage, String **stopWordsList
         exit(1);
     }
 
+}
+
+double calculatePageRank(Page* page, int pagesCount){
+   
+    double alfa = 0.85;
+    double rank;
+    double e = 1 / pagesCount;
+    if(getCountOutLinks(page) != 0){
+        rank = ((1 - alfa) / (double)pagesCount);
+    }else{
+        rank = ((1 - alfa) / (double)pagesCount) + (alfa * getPageRank(page));
+    }
+
+    TST* links = getLinks(page);
+    
+    int iteracao = 0;
+
+    
+    while(1){
+        Page** links = getValues(getLinks(page));
+        double result = 0;
+        double** resultadosPassados = (double**)malloc(sizeof(double) * pagesCount);
+        double** resultadosAtuais = (double**)malloc(sizeof(double) * pagesCount);
+        for(int i = 0; i < pagesCount; i++){
+            r
+            for(int j  = 0; j < getCountInLinks(page); j++){
+                double auxResult = 0;
+                resultadosAtuais[i][j] = getPageRank(links[i]) / getCountOutLinks(links[i]);
+                result += getPageRank(links[i]) / getCountOutLinks(links[i]);
+            }
+        }
+       
+
+        double pagerank = rank + (alfa * result);
+        
+        e = (1 / pagesCount);
+        double result2 = 0;
+        for(int i = 0; i < getCountInLinks(page); i++){
+            result2 += pagerank
+        }
+
+
+        resultadosPassados = resultadosAtuais;
+
+        if(e < 1E-6){
+            break;
+        }
+    }
+        
+}
+
+TST* searchAndCalculatePR(TST* pages){
+    if(pages){
+        if(getValues(pages) != NULL){
+            Page** pagesResult = (Page**)getValues(pages);
+            Page* pageResult = pagesResult[0];
+            pages = calculatePageRank(page);
+        }
+
+        pages = searchAndCalculatePR(getLeft(pages));
+        pages = searchAndCalculatePR(getMid(pages));
+        searchAndCalculatePR(getRight(pages));
+    }
+
+    return pages;
 }
 
 int binarySearch(String **arr, int left, int right, char *key)
