@@ -11,20 +11,6 @@ struct page {
     TST* links;
 };
 
-// void calculatePageRank(TST* pages, String** namePages, int countPages){
-//     int firstIteration = 1;
-//     double alfa = 0.85;
-
-//     while(1){
-//         if(firstIteration){
-//             for(int i = 0; i < countPages; i++){
-            
-//             }
-//         }
-//     }
-        
-// }
-
 
 
 String* getNome(Page* page){
