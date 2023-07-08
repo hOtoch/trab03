@@ -17,6 +17,8 @@ TST* create_node() {
     return t;
 }
 
+
+
 TST* getMid(TST* node){
     if(node == NULL) return NULL;
     return node->mid;
