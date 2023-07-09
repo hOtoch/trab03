@@ -15,7 +15,7 @@ double calculateEndPageRank(TST* pages, double value);
 
 double calculateSumInLinks(TST* inLinks, double sum);
 
-void calculatePageRank(TST* pages);
+void calculatePageRank(TST* pages, int countPages);
 
 TST* searchAndIndex(TST * indexTST, TST *pages, char *pathPage, String **stopWordsList, int swCount);
 

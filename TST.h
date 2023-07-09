@@ -14,6 +14,8 @@ TST* getLeft(TST* node);
 
 TST* getMid(TST* node);
 
+TST* searchNCalculatePR(TST* pages);
+
 int getCountValues(TST* node);
 
 void* getValues(TST* node);
