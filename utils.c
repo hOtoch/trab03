@@ -1,4 +1,5 @@
 #include "utils.h"
+#include "math.h"
 #include "page.h"
 
 int verifyStopWord(char *word, char **stopWordsList, int countStopWords)
@@ -17,13 +18,10 @@ int verifyStopWord(char *word, char **stopWordsList, int countStopWords)
 void searchAndPrint(TST* indexTST){
     if(indexTST){
         if(getValues(indexTST) != NULL){
-            String** values = (String**)getValues(indexTST);
-            
-            printf("Pages: ");
-            for(int i = 0; i < getCountValues(indexTST); i++){
-                printf("%s ", getString(values[i]));
-            }
-            printf("\n");
+            Page** values = (Page**)getValues(indexTST);
+            Page* page = (Page*)values[0];
+
+            printf("Página %s - PR: %f\n", getString(getNome(page)), getOldPageRank(page));
         }
 
         searchAndPrint(getLeft(indexTST));
@@ -37,28 +35,30 @@ double calculateSumInLinks(TST* inLinks, double sum){
         if(getValues(inLinks) != NULL){
             Page** pages = (Page**)getValues(inLinks);
             Page* page = pages[0];
-            
+            // printf("--> Page: %s - PR: %f - OldPR: %f - CountOutLinks: %d\n", getString(getNome(page)), getPageRank(page),getOldPageRank(page), getCountOutLinks(page));
             sum += getOldPageRank(page)/getCountOutLinks(page);
+            // printf("Soma: %lf\n", sum);
         }
 
         sum = calculateSumInLinks(getLeft(inLinks), sum);
         sum = calculateSumInLinks(getMid(inLinks), sum);
         sum = calculateSumInLinks(getRight(inLinks), sum);
     }
-
+    
     return sum;
 }
 
-void calculatePageRank(TST* pages){
+void calculatePageRank(TST* pages, int countPages){
     if(pages){
         if(getValues(pages) != NULL){
             Page** pagesResult = (Page**)getValues(pages);
             Page* pageResult = pagesResult[0];
 
-            double baseValue = (1-0.85)/getCountPages(pages);
+            double baseValue = (1-0.85)/countPages;
             TST* links = getLinks(pageResult);
-                
+
             double sumInLinks = calculateSumInLinks(links, 0.0);
+           
             double pageRank = 0.0;
 
             if(getCountOutLinks(pageResult) != 0){
@@ -66,14 +66,17 @@ void calculatePageRank(TST* pages){
             }else{
                 pageRank = baseValue + (0.85*getOldPageRank(pageResult)) + 0.85*sumInLinks;
             }
-
             setOldPageRank(pageResult, getPageRank(pageResult));
             setPageRank(pageResult, pageRank);
+
+            printf("Page: %s - PR: %f\n", getString(getNome(pageResult)), getPageRank(pageResult));
+            printf("Sum In Links: %f\n", sumInLinks);
+            
         }
         
-        calculatePageRank(getLeft(pages));
-        calculatePageRank(getMid(pages));
-        calculatePageRank(getRight(pages));
+        calculatePageRank(getLeft(pages), countPages);
+        calculatePageRank(getMid(pages), countPages);
+        calculatePageRank(getRight(pages), countPages);
     }
         
 }
@@ -106,7 +109,10 @@ double calculateEndPageRank(TST* pages, double value){
         if(getValues(pages) != NULL){
             Page** pagesResult = (Page**)getValues(pages);
             Page* pageResult = pagesResult[0];
-            value += (getPageRank(pageResult) - getOldPageRank(pageResult));
+            // printf("Page: %s - PR: %f - OldPR: %f\n", getString(getNome(pageResult)), getPageRank(pageResult), getOldPageRank(pageResult));
+            // printf("Diff: %lf\n", getPageRank(pageResult) - getOldPageRank(pageResult));
+            value += fabs(getPageRank(pageResult) - getOldPageRank(pageResult));
+            // printf("Value: %lf\n", value);
         }
 
         value = calculateEndPageRank(getLeft(pages), value);
@@ -165,70 +171,6 @@ TST* indexador(TST *indexTST, Page *page, char *pathPage, String **stopWordsList
 
 }
 
-double calculatePageRank(Page* page, int pagesCount){
-   
-    double alfa = 0.85;
-    double rank;
-    double e = 1 / pagesCount;
-    if(getCountOutLinks(page) != 0){
-        rank = ((1 - alfa) / (double)pagesCount);
-    }else{
-        rank = ((1 - alfa) / (double)pagesCount) + (alfa * getPageRank(page));
-    }
-
-    TST* links = getLinks(page);
-    
-    int iteracao = 0;
-
-    
-    while(1){
-        Page** links = getValues(getLinks(page));
-        double result = 0;
-        double** resultadosPassados = (double**)malloc(sizeof(double) * pagesCount);
-        double** resultadosAtuais = (double**)malloc(sizeof(double) * pagesCount);
-        for(int i = 0; i < pagesCount; i++){
-            r
-            for(int j  = 0; j < getCountInLinks(page); j++){
-                double auxResult = 0;
-                resultadosAtuais[i][j] = getPageRank(links[i]) / getCountOutLinks(links[i]);
-                result += getPageRank(links[i]) / getCountOutLinks(links[i]);
-            }
-        }
-       
-
-        double pagerank = rank + (alfa * result);
-        
-        e = (1 / pagesCount);
-        double result2 = 0;
-        for(int i = 0; i < getCountInLinks(page); i++){
-            result2 += pagerank
-        }
-
-
-        resultadosPassados = resultadosAtuais;
-
-        if(e < 1E-6){
-            break;
-        }
-    }
-        
-}
-
-TST* searchAndCalculatePR(TST* pages){
-    if(pages){
-        if(getValues(pages) != NULL){
-            Page** pagesResult = (Page**)getValues(pages);
-            Page* pageResult = pagesResult[0];
-            pages = calculatePageRank(page);
-        }
-
-        pages = searchAndCalculatePR(getLeft(pages));
-        pages = searchAndCalculatePR(getMid(pages));
-        searchAndCalculatePR(getRight(pages));
-    }
-
-    return pages;
-}
 
 int binarySearch(String **arr, int left, int right, char *key)
 {

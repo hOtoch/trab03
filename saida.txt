@@ -1,51 +1,1056 @@
-Page: 10718.txt
-Page: 10905.txt
-Page: 10971-8.txt
-Page: 12096-8.txt
-Page: 12111.txt
-Page: 12241.txt
-Page: 12334-8.txt
-Page: 1239.txt
-Page: 12682.txt
-Page: 13296-8.txt
-Page: 13589-8.txt
-Page: 1371.txt
-Page: 14101.txt
-Page: 15551-8.txt
-Page: 15630-8.txt
-Page: 15974-8.txt
-Page: 16262-8.txt
-Page: 17160-8.txt
-Page: 17661-8.txt
-Page: 18531-8.txt
-Page: 18914-8.txt
-Page: 19848-8.txt
-Page: 19953-8.txt
-Page: 20301-0.txt
-Page: 20474.txt
-Page: 21225-8.txt
-Page: 22017-8.txt
-Page: 22322-8.txt
-Page: 22593-8.txt
-Page: 22668-8.txt
-Page: 23019-8.txt
-Page: 23792-8.txt
-Page: 23941-8.txt
-Page: 24011.txt
-Page: 24345-8.txt
-Page: 24614-8.txt
-Page: 25911-8.txt
-Page: 26869-8.txt
-Page: 27603-8.txt
-Page: 27742-8.txt
-Page: 28688-8.txt
-Page: 29004-8.txt
-Page: 29539-8.txt
-Page: 30380.txt
-Page: 305.txt
-Page: 30648-8.txt
-Page: 3391.txt
-Page: 6718.txt
-Page: 6762.txt
-Page: 840.txt
-TST NULA
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.256667
+Sum In Links: 0.266667
+Page: c.txt - PR: 0.370000
+Sum In Links: 0.200000
+Page: d.txt - PR: 0.171667
+Sum In Links: 0.166667
+Page: e.txt - PR: 0.171667
+Sum In Links: 0.166667
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.208500
+Sum In Links: 0.210000
+Page: c.txt - PR: 0.418167
+Sum In Links: 0.256667
+Page: d.txt - PR: 0.123500
+Sum In Links: 0.110000
+Page: e.txt - PR: 0.111458
+Sum In Links: 0.095833
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.184417
+Sum In Links: 0.181667
+Page: c.txt - PR: 0.521725
+Sum In Links: 0.208500
+Page: d.txt - PR: 0.111458
+Sum In Links: 0.095833
+Page: e.txt - PR: 0.090988
+Sum In Links: 0.071750
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.138357
+Sum In Links: 0.127479
+Page: c.txt - PR: 0.542196
+Sum In Links: 0.184417
+Page: d.txt - PR: 0.085870
+Sum In Links: 0.065729
+Page: e.txt - PR: 0.085870
+Sum In Links: 0.065729
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.124539
+Sum In Links: 0.111223
+Page: c.txt - PR: 0.591070
+Sum In Links: 0.138357
+Page: d.txt - PR: 0.077170
+Sum In Links: 0.055494
+Page: e.txt - PR: 0.074995
+Sum In Links: 0.052935
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.111489
+Sum In Links: 0.095870
+Page: c.txt - PR: 0.596725
+Sum In Links: 0.124539
+Page: d.txt - PR: 0.074995
+Sum In Links: 0.052935
+Page: e.txt - PR: 0.071297
+Sum In Links: 0.048585
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.103170
+Sum In Links: 0.086082
+Page: c.txt - PR: 0.627175
+Sum In Links: 0.111489
+Page: d.txt - PR: 0.070373
+Sum In Links: 0.047497
+Page: e.txt - PR: 0.070373
+Sum In Links: 0.047497
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.100674
+Sum In Links: 0.083146
+Page: c.txt - PR: 0.624911
+Sum In Links: 0.103170
+Page: d.txt - PR: 0.068801
+Sum In Links: 0.045649
+Page: e.txt - PR: 0.068408
+Sum In Links: 0.045186
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.098317
+Sum In Links: 0.080373
+Page: c.txt - PR: 0.648672
+Sum In Links: 0.100674
+Page: d.txt - PR: 0.068408
+Sum In Links: 0.045186
+Page: e.txt - PR: 0.067741
+Sum In Links: 0.044401
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.096814
+Sum In Links: 0.078605
+Page: c.txt - PR: 0.644743
+Sum In Links: 0.098317
+Page: d.txt - PR: 0.067574
+Sum In Links: 0.044204
+Page: e.txt - PR: 0.067574
+Sum In Links: 0.044204
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.096363
+Sum In Links: 0.078074
+Page: c.txt - PR: 0.663663
+Sum In Links: 0.096814
+Page: d.txt - PR: 0.067290
+Sum In Links: 0.043870
+Page: e.txt - PR: 0.067219
+Sum In Links: 0.043787
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095938
+Sum In Links: 0.077574
+Page: c.txt - PR: 0.659941
+Sum In Links: 0.096363
+Page: d.txt - PR: 0.067219
+Sum In Links: 0.043787
+Page: e.txt - PR: 0.067098
+Sum In Links: 0.043645
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095666
+Sum In Links: 0.077254
+Page: c.txt - PR: 0.675661
+Sum In Links: 0.095938
+Page: d.txt - PR: 0.067068
+Sum In Links: 0.043609
+Page: e.txt - PR: 0.067068
+Sum In Links: 0.043609
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095585
+Sum In Links: 0.077158
+Page: c.txt - PR: 0.672266
+Sum In Links: 0.095666
+Page: d.txt - PR: 0.067017
+Sum In Links: 0.043549
+Page: e.txt - PR: 0.067004
+Sum In Links: 0.043534
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095508
+Sum In Links: 0.077068
+Page: c.txt - PR: 0.685559
+Sum In Links: 0.095585
+Page: d.txt - PR: 0.067004
+Sum In Links: 0.043534
+Page: e.txt - PR: 0.066982
+Sum In Links: 0.043508
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095459
+Sum In Links: 0.077010
+Page: c.txt - PR: 0.682607
+Sum In Links: 0.095508
+Page: d.txt - PR: 0.066977
+Sum In Links: 0.043502
+Page: e.txt - PR: 0.066977
+Sum In Links: 0.043502
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095444
+Sum In Links: 0.076993
+Page: c.txt - PR: 0.693865
+Sum In Links: 0.095459
+Page: d.txt - PR: 0.066967
+Sum In Links: 0.043491
+Page: e.txt - PR: 0.066965
+Sum In Links: 0.043488
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095430
+Sum In Links: 0.076977
+Page: c.txt - PR: 0.691344
+Sum In Links: 0.095444
+Page: d.txt - PR: 0.066965
+Sum In Links: 0.043488
+Page: e.txt - PR: 0.066961
+Sum In Links: 0.043484
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095421
+Sum In Links: 0.076966
+Page: c.txt - PR: 0.700901
+Sum In Links: 0.095430
+Page: d.txt - PR: 0.066960
+Sum In Links: 0.043483
+Page: e.txt - PR: 0.066960
+Sum In Links: 0.043483
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095419
+Sum In Links: 0.076963
+Page: c.txt - PR: 0.698750
+Sum In Links: 0.095421
+Page: d.txt - PR: 0.066958
+Sum In Links: 0.043481
+Page: e.txt - PR: 0.066958
+Sum In Links: 0.043480
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095416
+Sum In Links: 0.076960
+Page: c.txt - PR: 0.706871
+Sum In Links: 0.095419
+Page: d.txt - PR: 0.066958
+Sum In Links: 0.043480
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043479
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095415
+Sum In Links: 0.076958
+Page: c.txt - PR: 0.705042
+Sum In Links: 0.095416
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043479
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043479
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095414
+Sum In Links: 0.076958
+Page: c.txt - PR: 0.711943
+Sum In Links: 0.095415
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043479
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043479
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095414
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.710387
+Sum In Links: 0.095414
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043479
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.716253
+Sum In Links: 0.095414
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.714930
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.719916
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.718792
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.723030
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.722074
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.725677
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.724864
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.727926
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.727236
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.729838
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.729251
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.731464
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.730965
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.732845
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.732421
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.734020
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.733659
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.735018
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.734711
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.735866
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.735606
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.736587
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.736366
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.737200
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.737012
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.737721
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.737561
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.738164
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.738028
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.738541
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.738425
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.738861
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.738762
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.739133
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.739049
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.739364
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.739293
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.739560
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.739500
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.739727
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.739676
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.739869
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.739826
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.739990
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.739953
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740093
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740061
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740180
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740153
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740254
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740231
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740317
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740298
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740370
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740354
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740416
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740402
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740455
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740443
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740488
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740477
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740516
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740507
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740539
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740532
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740559
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740553
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740577
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740571
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740591
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------
+Page: a.txt - PR: 0.030000
+Sum In Links: 0.000000
+Page: b.txt - PR: 0.095413
+Sum In Links: 0.076957
+Page: c.txt - PR: 0.740587
+Sum In Links: 0.095413
+Page: d.txt - PR: 0.066957
+Sum In Links: 0.043478
+Page: e.txt - PR: 0.066957
+Sum In Links: 0.043478
+-----------------------------------------------------------------------------

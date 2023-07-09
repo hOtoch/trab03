@@ -17,6 +17,8 @@ void setCountOutLinks(Page* page, int countOutLinks);
 void setCountInLinks(Page* page, int countInLinks);
 Page* newPage(char* nome, int countLinks);
 Page* getPage(Page** page, int i);
+double getOldPageRank(Page* page);
+void setOldPageRank(Page* page, double oldPageRank);
 double getPageRank(Page* page);
 void setPageRank(Page* page, double pageRank);
 void freePage(Page* page);

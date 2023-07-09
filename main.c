@@ -43,9 +43,10 @@ int main(int argc, char *argv[])
     int *auxCountPages = &countPages;
     TST* pagesTST = NULL;
 
+    
     pagesTST = leArquivoTST(pathIndexString, maxPagesCount, auxCountPages);
 
-
+    
     // ----- Leitura do graph.txt e inserção dos valores da TST de pages -----
 
     char *dirAux = malloc(sizeof(char) * (strlen(dir) + strlen("/pages") + 1));
@@ -60,16 +61,17 @@ int main(int argc, char *argv[])
     int countOutLinks;
     String** conexoes;
     FILE* fileGraph = fopen(pathGraph, "r");
-
+    
     for(int i = 0; i < countPages; i++){
         getline(&line, &len, fileGraph);
         nameP1 = createString(strtok(line, " "));
         countOutLinks = atoi(strtok(NULL, " "));
-
+        
         Page** p1 = TST_search(pagesTST, nameP1);
+        
         setCountOutLinks(p1[0], countOutLinks); // Atualizando o countOutLinks da pagina
-        setPageRank(p1[0], 1/countPages);
-
+        setPageRank(p1[0], (double)(1.0/countPages));
+        setOldPageRank(p1[0], (double)(1.0/countPages));
         for(int i = 0; i < countOutLinks; i++){
             termo = strtok(NULL, " ");
             String* nameP2 = createString(termo);
@@ -77,6 +79,7 @@ int main(int argc, char *argv[])
 
             Page** p2 = TST_search(pagesTST, nameP2);
             setCountInLinks(p2[0], getCountInLinks(p2[0]) + 1);
+
             
             TST* root = getLinks(p2[0]);
             
@@ -89,6 +92,8 @@ int main(int argc, char *argv[])
        
 
     }
+
+    
 
     // Page** searchPage = TST_search(pagesTST, createString("12241.txt"));
     // printf("NOME SEARCH PAGE: %s\n", getString(getNome(searchPage[0])));
@@ -114,17 +119,18 @@ int main(int argc, char *argv[])
 
     /* -------- Calculando os Page Ranks ----------- */
 
-    double stopValue = 0.0000000000;
-
+    double stopValue = 1;
+    int countIterations = 0;
     while(stopValue >= 1e-6){
         // calcula page rank
-        calculatePageRank(pagesTST);
-
-        stopValue = (1/countPages) * calculateEndPageRank(pagesTST, 0.0);
+        // printf("ITERAÇÃO: %d\n", countIterations++);
+        calculatePageRank(pagesTST,countPages);
+        stopValue = (double)((1.0/countPages) * calculateEndPageRank(pagesTST, 0.0));
+        // printf("Stop Value: %lf\n", stopValue);
+        printf("-----------------------------------------------------------------------------\n");
     }
 
 
-    
 
     // ---- Liberação de memória -----
     // freeListString(stopWordsList, swCount);
