@@ -32,6 +32,54 @@ void searchAndPrint(TST* indexTST){
     }
 }
 
+double calculateSumInLinks(TST* inLinks, double sum){
+    if(inLinks){
+        if(getValues(inLinks) != NULL){
+            Page** pages = (Page**)getValues(inLinks);
+            Page* page = pages[0];
+            
+            sum += getOldPageRank(page)/getCountOutLinks(page);
+        }
+
+        sum = calculateSumInLinks(getLeft(inLinks), sum);
+        sum = calculateSumInLinks(getMid(inLinks), sum);
+        sum = calculateSumInLinks(getRight(inLinks), sum);
+    }
+
+    return sum;
+}
+
+void calculatePageRank(TST* pages){
+    if(pages){
+        if(getValues(pages) != NULL){
+            Page** pagesResult = (Page**)getValues(pages);
+            Page* pageResult = pagesResult[0];
+
+            double baseValue = (1-0.85)/getCountPages(pages);
+            TST* links = getLinks(pageResult);
+                
+            double sumInLinks = calculateSumInLinks(links, 0.0);
+            double pageRank = 0.0;
+
+            if(getCountOutLinks(pageResult) != 0){
+                pageRank = baseValue + 0.85*sumInLinks;
+            }else{
+                pageRank = baseValue + (0.85*getOldPageRank(pageResult)) + 0.85*sumInLinks;
+            }
+
+            setOldPageRank(pageResult, getPageRank(pageResult));
+            setPageRank(pageResult, pageRank);
+        }
+        
+        calculatePageRank(getLeft(pages));
+        calculatePageRank(getMid(pages));
+        calculatePageRank(getRight(pages));
+    }
+        
+}
+
+
+
 TST* searchAndIndex(TST * indexTST, TST *pages, char *pathPage, String **stopWordsList, int swCount)
 {
 
@@ -53,6 +101,22 @@ TST* searchAndIndex(TST * indexTST, TST *pages, char *pathPage, String **stopWor
     return indexTST;
 }
 
+double calculateEndPageRank(TST* pages, double value){
+    if(pages){
+        if(getValues(pages) != NULL){
+            Page** pagesResult = (Page**)getValues(pages);
+            Page* pageResult = pagesResult[0];
+            value += (getPageRank(pageResult) - getOldPageRank(pageResult));
+        }
+
+        value = calculateEndPageRank(getLeft(pages), value);
+        value = calculateEndPageRank(getMid(pages), value);
+        value = calculateEndPageRank(getRight(pages), value);
+    }
+
+    return value;
+}
+
 TST* indexador(TST *indexTST, Page *page, char *pathPage, String **stopWordsList, int swCount)
 {
     char result[100];
@@ -70,15 +134,11 @@ TST* indexador(TST *indexTST, Page *page, char *pathPage, String **stopWordsList
 
     if (verificaArquivo(filePage))
     {
-
-        // printf("---------------- Indexando %s ------------------\n", getString(getNome(page)));
         while (!feof(filePage))
         {
             getline(&line, &len, filePage);
-
-            
-
             termo = strtok(line, " ");
+
             while (termo != NULL)
             {
                 /* Remove o \n e transforma todas as letras em lowcase */
@@ -86,25 +146,12 @@ TST* indexador(TST *indexTST, Page *page, char *pathPage, String **stopWordsList
                 toLowerCase(termoString);
                 removeNewLine(termoString);
 
-                // printf("Termo: %s", getString(termoString));
-
                 // Verificar se eh stopword (busca binaria)
                 int index = binarySearch(stopWordsList, 0, swCount - 1, getString(termoString));
 
-                if (index == -1)
-                {
-                    // printf("--- Termo <%s> nao eh stopword ---\n", getString(termoString));
-                    // root = RBT_insert(root, termoString, pages[i]);
-
-                    indexTST = TST_insert(indexTST, termoString, (Page *)page); 
-                }
-                else
-                {
-                    // printf("--- Termo <%s> eh stopword ---\n", getString(termoString));
-                }
+                if (index == -1) indexTST = TST_insert(indexTST, termoString, (Page *)page); 
 
                 termo = strtok(NULL, " ");
-                // printf("--------------------------------------------------------------------\n");
             }
         }
         fclose(filePage);

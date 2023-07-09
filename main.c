@@ -99,29 +99,14 @@ int main(int argc, char *argv[])
 
 
 
-    String** indexList = (String**) malloc(sizeof(String*)*countPages);
-    FILE* indexFile = fopen(pathIndex, "r");
-    for(int i = 0; i < countPages; i++){
-        getline(&line, &len, indexFile);
-        indexList[i] = createString(line);
-        removeNewLine(indexList[i]);
-    }
-    fclose(indexFile);
 
-
-
-    // ----- Indexador ------
+    /* ------------- Indexador -------------- */ 
 
     char *pathPage = strcat(dirAux, "/pages/");
    
     TST *indexadorTST = NULL;
 
     indexadorTST = searchAndIndex(indexadorTST, pagesTST, pathPage, stopWordsList, swCount);
-
-    if(indexadorTST == NULL){
-        printf("TST NULA\n");
-    }
-
 
     searchAndPrint(indexadorTST);
     
@@ -132,7 +117,16 @@ int main(int argc, char *argv[])
     //     printf("NOME RESULT PAGE: %s\n", getString(getNome(resultPages[i])));
     // }
 
+    /* -------- Calculando os Page Ranks ----------- */
 
+    double stopValue = 0.0000000000;
+
+    while(stopValue >= 1e-6){
+        // calcula page rank
+        calculatePageRank(pagesTST);
+
+        stopValue = (1/countPages) * calculateEndPageRank(pagesTST, 0.0);
+    }
 
 
     

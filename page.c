@@ -8,23 +8,18 @@ struct page {
     int countInLinks;
     int countOutLinks;
     double pageRank;
+    double oldPageRank;
     TST* links;
 };
 
-// void calculatePageRank(TST* pages, String** namePages, int countPages){
-//     int firstIteration = 1;
-//     double alfa = 0.85;
 
-//     while(1){
-//         if(firstIteration){
-//             for(int i = 0; i < countPages; i++){
-            
-//             }
-//         }
-//     }
-        
-// }
+double getOldPageRank(Page* page){
+    return page->oldPageRank;
+}
 
+void setOldPageRank(Page* page, double oldPageRank){
+    page->oldPageRank = oldPageRank;
+}
 
 
 String* getNome(Page* page){
@@ -74,6 +69,7 @@ Page* newPage(char* nome, int countLinks){
     page->pageRank = 0;
     page->countInLinks = 0;
     page->countOutLinks = countLinks;
+    page->oldPageRank = 0;
     return page;
 }
 
