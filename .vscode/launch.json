@@ -7,9 +7,9 @@
       "request": "launch",
       "args": [],
       "stopAtEntry": false,
-      "externalConsole": true,
-      "cwd": "d:/Estudo/EngComp/ED 2/trab03",
-      "program": "d:/Estudo/EngComp/ED 2/trab03/build/Debug/outDebug",
+      "externalConsole": false,
+      "cwd": "/home/jgab/trab03_ED2-1",
+      "program": "/home/jgab/trab03_ED2-1/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

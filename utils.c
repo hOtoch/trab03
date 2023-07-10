@@ -30,19 +30,24 @@ void searchAndPrint(TST* indexTST){
     }
 }
 
-double calculateSumInLinks(TST* inLinks, double sum){
+double calculateSumInLinks(TST* inLinks, double sum, char* iteracao){
     if(inLinks){
         if(getValues(inLinks) != NULL){
+            // printf("InLinks\n");
             Page** pages = (Page**)getValues(inLinks);
             Page* page = pages[0];
-            // printf("--> Page: %s - PR: %f - OldPR: %f - CountOutLinks: %d\n", getString(getNome(page)), getPageRank(page),getOldPageRank(page), getCountOutLinks(page));
-            sum += getOldPageRank(page)/getCountOutLinks(page);
+            // printf("Page: %s; PR: %f - OldPR: %f - CountOutLinks: %d\n", getString(getNome(page)), getPageRank(page), getOldPageRank(page), getCountOutLinks(page));
+            if(compare(createString(iteracao), getNome(page)) == 1){
+                sum += getOldPageRank(page)/fabs(getCountOutLinks(page));
+            }else{
+                sum += getPageRank(page)/fabs(getCountOutLinks(page));
+            }
             // printf("Soma: %lf\n", sum);
         }
 
-        sum = calculateSumInLinks(getLeft(inLinks), sum);
-        sum = calculateSumInLinks(getMid(inLinks), sum);
-        sum = calculateSumInLinks(getRight(inLinks), sum);
+        sum = calculateSumInLinks(getLeft(inLinks), sum, iteracao);
+        sum = calculateSumInLinks(getMid(inLinks), sum, iteracao);
+        sum = calculateSumInLinks(getRight(inLinks), sum, iteracao);
     }
     
     return sum;
@@ -56,19 +61,20 @@ void calculatePageRank(TST* pages, int countPages){
 
             double baseValue = (1-0.85)/countPages;
             TST* links = getLinks(pageResult);
-
-            double sumInLinks = calculateSumInLinks(links, 0.0);
+            printf("--> Page: %s\n", getString(getNome(pageResult)));
+            double sumInLinks = calculateSumInLinks(links, 0.0, getString(getNome(pageResult)));
            
             double pageRank = 0.0;
 
             if(getCountOutLinks(pageResult) != 0){
                 pageRank = baseValue + 0.85*sumInLinks;
             }else{
-                pageRank = baseValue + (0.85*getOldPageRank(pageResult)) + 0.85*sumInLinks;
+                pageRank = baseValue + (0.85*getPageRank(pageResult)) + 0.85*sumInLinks;
             }
+            
             setOldPageRank(pageResult, getPageRank(pageResult));
             setPageRank(pageResult, pageRank);
-
+        
             printf("Page: %s - PR: %f\n", getString(getNome(pageResult)), getPageRank(pageResult));
             printf("Sum In Links: %f\n", sumInLinks);
             

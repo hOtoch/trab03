@@ -10,7 +10,7 @@
 int main(int argc, char *argv[])
 {
     // Nome do diretorio que contem as pastas dado nos argumentos
-    char *dir = argv[1];
+    char *dir = "exemplo3";
 
     // ----- Vetor de Strings StopWords -----
 
@@ -123,10 +123,10 @@ int main(int argc, char *argv[])
     int countIterations = 0;
     while(stopValue >= 1e-6){
         // calcula page rank
-        // printf("ITERAÇÃO: %d\n", countIterations++);
+        printf("ITERAÇÃO: %d\n", countIterations++);
         calculatePageRank(pagesTST,countPages);
         stopValue = (double)((1.0/countPages) * calculateEndPageRank(pagesTST, 0.0));
-        // printf("Stop Value: %lf\n", stopValue);
+        printf("Stop Value: %lf\n", stopValue);
         printf("-----------------------------------------------------------------------------\n");
     }
 

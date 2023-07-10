@@ -13,7 +13,7 @@ void searchAndPrint(TST* indexTST);
 
 double calculateEndPageRank(TST* pages, double value);
 
-double calculateSumInLinks(TST* inLinks, double sum);
+double calculateSumInLinks(TST* inLinks, double sum, char* iteracao);
 
 void calculatePageRank(TST* pages, int countPages);
 
