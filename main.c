@@ -10,7 +10,7 @@
 int main(int argc, char *argv[])
 {
     // Nome do diretorio que contem as pastas dado nos argumentos
-    char *dir = "exemplo3";
+    char *dir = "exemplo2";
 
     // ----- Vetor de Strings StopWords -----
 
@@ -133,10 +133,10 @@ int main(int argc, char *argv[])
 
 
     // ---- Liberação de memória -----
-    // freeListString(stopWordsList, swCount);
+    freeListString(stopWordsList, swCount);
     // freeListString(indexList, countPages);
     // freePages(pages, countPages);
-    // free(dir);
+    free(dir);
     free(pathStopWords);
     freeString(pathStopWordsString);
     free(pathIndex);

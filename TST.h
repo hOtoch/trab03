@@ -16,6 +16,8 @@ TST* getMid(TST* node);
 
 TST* searchNCalculatePR(TST* pages);
 
+void* searchAndGetValue(TST* root, void* val);
+
 int getCountValues(TST* node);
 
 void* getValues(TST* node);

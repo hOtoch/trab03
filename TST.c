@@ -44,6 +44,17 @@ void* getValues(TST* node){
     return node->val;
 }
 
+void* searchAndGetValue(TST* root, void* val){
+    if(root == NULL) return NULL;
+    if(root->val != NULL) return root->val;
+
+    val = searchAndGetValue(root->left, val);
+    val = searchAndGetValue(root->mid, val);
+    val = searchAndGetValue(root->right, val);
+
+    return val;
+}
+
 TST* rec_insert(TST* t, String* key, void* val, int d) {
     unsigned char c = getString(key)[d];
     if (t == NULL) {
@@ -57,23 +68,39 @@ TST* rec_insert(TST* t, String* key, void* val, int d) {
     else if (d < getSize(key)-1) {
         t->mid = rec_insert(t->mid, key, val, d+1);
     } else { // Inserindo o valor no ultimo nó da palavra
-        // t->val = val; 
+        
         if(t->countValues == 0){
-            // printf("CRIANDO VETOR DE VALUE\n");
-            t->val = malloc(sizeof(void*));
-            t->val[0] = val;
+            t->val = (void**)TST_insert((TST*)t->val, key,val);
             t->countValues = 1;
         }else{
-            if(compare(getNome((Page*)t->val[t->countValues-1]), getNome((Page*)val)) == 0){
-                // printf("VALOR JA EXISTE\n");
+            void* result = TST_search((TST*)t->val, key);
+
+            if(result == NULL){
+                t->val = (void**)TST_insert((TST*)t->val, key,val);
+                t->countValues++;
+            }else{
                 return t;
-            } 
-            
-            t->countValues++;
-            t->val = realloc(t->val, sizeof(void*)*t->countValues);
-            t->val[t->countValues - 1] = val;
-            
+            }
         }
+
+
+
+        // if(t->countValues == 0){
+        //     // printf("CRIANDO VETOR DE VALUE\n");
+        //     t->val = malloc(sizeof(void*));
+        //     t->val[0] = val;
+        //     t->countValues = 1;
+        // }else{
+        //     if(compare(getNome((Page*)t->val[t->countValues-1]), getNome((Page*)val)) == 0){
+        //         // printf("VALOR JA EXISTE\n");
+        //         return t;
+        //     } 
+            
+        //     t->countValues++;
+        //     t->val = realloc(t->val, sizeof(void*)*t->countValues);
+        //     t->val[t->countValues - 1] = val;
+            
+        // }
         
     }
     return t;

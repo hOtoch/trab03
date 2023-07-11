@@ -18,8 +18,7 @@ int verifyStopWord(char *word, char **stopWordsList, int countStopWords)
 void searchAndPrint(TST* indexTST){
     if(indexTST){
         if(getValues(indexTST) != NULL){
-            Page** values = (Page**)getValues(indexTST);
-            Page* page = (Page*)values[0];
+            Page* page = (Page*)searchAndGetValue(indexTST, NULL);
 
             printf("Página %s - PR: %f\n", getString(getNome(page)), getOldPageRank(page));
         }
@@ -34,8 +33,7 @@ double calculateSumInLinks(TST* inLinks, double sum, char* iteracao){
     if(inLinks){
         if(getValues(inLinks) != NULL){
             // printf("InLinks\n");
-            Page** pages = (Page**)getValues(inLinks);
-            Page* page = pages[0];
+            Page* page = (Page*)searchAndGetValue(inLinks, NULL);
             // printf("Page: %s; PR: %f - OldPR: %f - CountOutLinks: %d\n", getString(getNome(page)), getPageRank(page), getOldPageRank(page), getCountOutLinks(page));
             if(compare(createString(iteracao), getNome(page)) == 1){
                 sum += getOldPageRank(page)/fabs(getCountOutLinks(page));
@@ -56,8 +54,9 @@ double calculateSumInLinks(TST* inLinks, double sum, char* iteracao){
 void calculatePageRank(TST* pages, int countPages){
     if(pages){
         if(getValues(pages) != NULL){
-            Page** pagesResult = (Page**)getValues(pages);
-            Page* pageResult = pagesResult[0];
+            // Page** pagesResult = (Page**)getValues(pages);
+            // Page* pageResult = pagesResult[0];
+            Page* pageResult = (Page*)searchAndGetValue(pages, NULL);
 
             double baseValue = (1-0.85)/countPages;
             TST* links = getLinks(pageResult);
@@ -96,8 +95,7 @@ TST* searchAndIndex(TST * indexTST, TST *pages, char *pathPage, String **stopWor
     {
         if (getValues(pages) != NULL)
         {
-            Page **pagesResult = (Page **)getValues(pages);
-            Page *pageResult = pagesResult[0];
+            Page* pageResult = (Page*)searchAndGetValue(pages, NULL);
             // printf("Page: %s\n", getString(getNome(pageResult)));
             indexTST = indexador(indexTST, pageResult, pathPage, stopWordsList, swCount);
 
@@ -113,8 +111,7 @@ TST* searchAndIndex(TST * indexTST, TST *pages, char *pathPage, String **stopWor
 double calculateEndPageRank(TST* pages, double value){
     if(pages){
         if(getValues(pages) != NULL){
-            Page** pagesResult = (Page**)getValues(pages);
-            Page* pageResult = pagesResult[0];
+            Page* pageResult = (Page*)searchAndGetValue(pages, NULL);
             // printf("Page: %s - PR: %f - OldPR: %f\n", getString(getNome(pageResult)), getPageRank(pageResult), getOldPageRank(pageResult));
             // printf("Diff: %lf\n", getPageRank(pageResult) - getOldPageRank(pageResult));
             value += fabs(getPageRank(pageResult) - getOldPageRank(pageResult));
