@@ -70,33 +70,29 @@ int main(int argc, char *argv[])
     
     for(int i = 0; i < countPages; i++){
         getline(&line, &len, fileGraph);
-        // printf("Linha: %s\n", line);
-        // termo = strtok(line, " ");
-        // nameP1 = createString(termo);
+        termo = strtok(line, " ");
+        nameP1 = createString(termo);
+        removeNewLine(nameP1);
     
+        // printf("NOME P1: %s ", getString(nameP1));
+        countOutLinks = atoi(strtok(NULL, " "));
         
-        // // printf("NOME P1: %s ", getString(nameP1));
-        // countOutLinks = atoi(strtok(NULL, " "));
-        
-       
-
         TST* resultTST = (TST*)TST_search(pagesTST, nameP1);
-       
         Page* p1 = (Page*)TST_search(resultTST, nameP1);
         
       
         setCountOutLinks(p1, countOutLinks); // Atualizando o countOutLinks da pagina
-        printf("NOME P1: %s - CountOutLinks: %d ", getString(nameP1), countOutLinks);
+        
         setPageRank(p1, (double)(1.0/countPages));
         setOldPageRank(p1, (double)(1.0/countPages));
         for(int i = 0; i < countOutLinks; i++){
             termo = strtok(NULL, " ");
             String* nameP2 = createString(termo);
+            removeNewLine(nameP2);
 
             TST* resultTST = (TST*)TST_search(pagesTST, nameP2);
             Page* p2 = (Page*)TST_search(resultTST, nameP2);
-            
-            printf("----> NOME P2: %s ", getString(getNome(p2)));
+    
             setCountInLinks(p2, getCountInLinks(p2) + 1);
 
 
@@ -130,6 +126,9 @@ int main(int argc, char *argv[])
     TST *indexadorTST = NULL;
 
     indexadorTST = searchAndIndex(indexadorTST, pagesTST, pathPage, stopWordsList, swCount);
+
+    TST* resultTST = (TST*)TST_search(indexadorTST, createString("abacate"));
+    searchAndPrint(resultTST);
 
 
     // -------- Page Rank ----------

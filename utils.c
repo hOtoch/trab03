@@ -17,11 +17,9 @@ int verifyStopWord(char *word, char **stopWordsList, int countStopWords)
 
 void searchAndPrint(TST* indexTST){
     if(indexTST){
-        TST* result = (TST*)getValues(indexTST);
+        Page* result = (Page*)getValues(indexTST);
         if(result != NULL){
-            Page* page = (Page*)getFirstElement(result);
-            
-            printf("Página %s - PR: %f\n", getString(getNome(page)), getOldPageRank(page));
+            printf("Página %s - PR: %f\n", getString(getNome(result)), getOldPageRank(result));
         }
 
         searchAndPrint(getLeft(indexTST));
@@ -96,8 +94,9 @@ TST* searchAndIndex(TST * indexTST, TST *pages, char *pathPage, String **stopWor
     {
         if (getValues(pages) != NULL)
         {
-            Page* pageResult = (Page*)getFirstElement(pages);
-            // printf("Page: %s\n", getString(getNome(pageResult)));
+            TST* result = (TST*)getValues(pages);
+            Page* pageResult = (Page*)getFirstElement(result);
+            printf("Page a ser indexada: %s\n", getString(getNome(pageResult)));
             indexTST = indexador(indexTST, pageResult, pathPage, stopWordsList, swCount);
 
         }
@@ -130,7 +129,7 @@ double calculateEndPageRank(TST* pages, double value){
 TST* indexador(TST *indexTST, Page *page, char *pathPage, String **stopWordsList, int swCount)
 {
     char result[100];
-    char *line = (char *)malloc(sizeof(char) * 100);
+    char *line = (char *)malloc(sizeof(char) * 1000);
     size_t len = 0;
     char *termo;
 
@@ -159,7 +158,19 @@ TST* indexador(TST *indexTST, Page *page, char *pathPage, String **stopWordsList
                 // Verificar se eh stopword (busca binaria)
                 int index = binarySearch(stopWordsList, 0, swCount - 1, getString(termoString));
 
-                if (index == -1) indexTST = TST_insert(indexTST, termoString, (Page *)page); 
+                if (index == -1){
+                    TST* result = (TST*) TST_search(indexTST, termoString);
+                    if(result == NULL){
+                        TST* newTST = NULL;
+                        newTST = TST_insert(newTST, termoString,(Page*) page);
+                        indexTST = TST_insert(indexTST, termoString,(TST*)newTST);
+
+                    }else{
+                        TST* resultTST = (TST*)getValues(result);
+                        resultTST = TST_insert(resultTST, termoString, (Page*)page);
+                        // indexTST = TST_insert(indexTST, termoString, (TST*)resultTST);
+                    }
+                } 
 
                 termo = strtok(NULL, " ");
             }
