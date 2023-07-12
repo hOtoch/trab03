@@ -45,6 +45,9 @@ int main(int argc, char *argv[])
 
     
     pagesTST = leArquivoTST(pathIndexString, maxPagesCount, auxCountPages);
+    // printf("Count Pages: %d\n", countPages);
+
+    // searchAndPrint(pagesTST);
 
     
     // ----- Leitura do graph.txt e inserção dos valores da TST de pages -----
@@ -54,39 +57,53 @@ int main(int argc, char *argv[])
     char *pathGraph = malloc(sizeof(char) * (strlen(dir) + strlen("/graph.txt") + 1));
     strcpy(pathGraph, dir);
     strcat(pathGraph, "/graph.txt");
-    char *line = (char *)malloc(sizeof(char) * 100);
+
+
+    char *line = (char *)malloc(sizeof(char) * 1000);
     size_t len = 0;
     char *termo;
     String* nameP1;
     int countOutLinks;
     String** conexoes;
+
     FILE* fileGraph = fopen(pathGraph, "r");
     
     for(int i = 0; i < countPages; i++){
         getline(&line, &len, fileGraph);
-        nameP1 = createString(strtok(line, " "));
-        countOutLinks = atoi(strtok(NULL, " "));
+        // printf("Linha: %s\n", line);
+        // termo = strtok(line, " ");
+        // nameP1 = createString(termo);
+    
         
-        Page** p1 = TST_search(pagesTST, nameP1);
+        // // printf("NOME P1: %s ", getString(nameP1));
+        // countOutLinks = atoi(strtok(NULL, " "));
         
-        setCountOutLinks(p1[0], countOutLinks); // Atualizando o countOutLinks da pagina
-        setPageRank(p1[0], (double)(1.0/countPages));
-        setOldPageRank(p1[0], (double)(1.0/countPages));
+       
+
+        TST* resultTST = (TST*)TST_search(pagesTST, nameP1);
+       
+        Page* p1 = (Page*)TST_search(resultTST, nameP1);
+        
+      
+        setCountOutLinks(p1, countOutLinks); // Atualizando o countOutLinks da pagina
+        printf("NOME P1: %s - CountOutLinks: %d ", getString(nameP1), countOutLinks);
+        setPageRank(p1, (double)(1.0/countPages));
+        setOldPageRank(p1, (double)(1.0/countPages));
         for(int i = 0; i < countOutLinks; i++){
             termo = strtok(NULL, " ");
             String* nameP2 = createString(termo);
-            removeNewLine(nameP2);
 
-            Page** p2 = TST_search(pagesTST, nameP2);
-            setCountInLinks(p2[0], getCountInLinks(p2[0]) + 1);
+            TST* resultTST = (TST*)TST_search(pagesTST, nameP2);
+            Page* p2 = (Page*)TST_search(resultTST, nameP2);
+            
+            printf("----> NOME P2: %s ", getString(getNome(p2)));
+            setCountInLinks(p2, getCountInLinks(p2) + 1);
 
-            
-            TST* root = getLinks(p2[0]);
-            
+
             /* Inserindo a pagina p1[0] na arvore de páginas que contem um link para a pagina p2[0]*/
-            root = TST_insert(root, nameP1, (Page*) p1[0]); 
-
-            setLinks(p2[0], root);
+            TST* root = getLinks(p2);
+            root = TST_insert(root, nameP1, (Page*) p1);
+            setLinks(p2, root);
             
         }
        

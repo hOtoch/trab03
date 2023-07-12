@@ -46,8 +46,16 @@ TST* leArquivoTST(String* path, int maxCount, int *count){
             getline(&line, &len, arq);
             String* auxLine = createString(line);
             removeNewLine(auxLine);
-            if(TST_search(rootGraph, auxLine) == NULL){
-                rootGraph = TST_insert(rootGraph, auxLine, newPage(getString(auxLine),0));
+
+
+            TST* result = (TST*)TST_search(rootGraph, auxLine);
+            if(result == NULL){
+                TST* value = NULL;
+                value = TST_insert(value, auxLine,newPage(getString(auxLine),0)); // Criando a TST value da pagina a ser inserida
+                rootGraph = TST_insert(rootGraph, auxLine, (TST*)value);
+                *count = *count + 1;
+            }else{
+                result = TST_insert(result, auxLine, newPage(getString(auxLine),0));
                 *count = *count + 1;
             }
         }
