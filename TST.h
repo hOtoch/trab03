@@ -12,6 +12,8 @@ TST* getRight(TST* node);
 
 TST* getLeft(TST* node);
 
+void setValues(TST* node, void* val);
+
 TST* getMid(TST* node);
 
 TST* searchNCalculatePR(TST* pages);
@@ -29,5 +31,8 @@ int searchNGetCountValues(TST* t, String* key);
 TST* rec_search(TST* t, String* key, int d);
 
 void* TST_search(TST* t, String* key);
+
+
+void TST_Destroi(TST* t);
 
 #endif

@@ -23,6 +23,6 @@ double getPageRank(Page* page);
 void setPageRank(Page* page, double pageRank);
 void freePage(Page* page);
 void freePages(Page** pages, int countPages);
-
+Page** TST_intersecao(TST* guia, TST* segunda, Page** resultTST, int* indice);
 
 #endif

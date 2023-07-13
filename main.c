@@ -7,10 +7,13 @@
 #include "file.h"
 #include "TST.h"
 
+
+
+
 int main(int argc, char *argv[])
 {
     // Nome do diretorio que contem as pastas dado nos argumentos
-    char *dir = "exemplo2";
+    char *dir = argv[1];
 
     // ----- Vetor de Strings StopWords -----
 
@@ -22,16 +25,10 @@ int main(int argc, char *argv[])
     String *pathStopWordsString = createString(pathStopWords);
     String **stopWordsList;
 
-    // printf("%s\n", getString(pathStopWordsString));
-
     stopWordsList = leArquivo(pathStopWordsString, maxSwCount, auxSwCount);
-    // printf("%d\n", swCount);
 
     qsort(stopWordsList, swCount, sizeof(String *), compareQs);
 
-    // for(int i = 0; i < swCount; i++){
-    //     printf("%d - %s\n", i,getString(stopWordsList[i]));
-    // }
 
     // ----- Leitura do arquivo Index e inicialização da TST de pages  -----
 
@@ -45,9 +42,6 @@ int main(int argc, char *argv[])
 
     
     pagesTST = leArquivoTST(pathIndexString, maxPagesCount, auxCountPages);
-    // printf("Count Pages: %d\n", countPages);
-
-    // searchAndPrint(pagesTST);
 
     
     // ----- Leitura do graph.txt e inserção dos valores da TST de pages -----
@@ -106,17 +100,7 @@ int main(int argc, char *argv[])
 
     }
 
-    
-
-    // Page** searchPage = TST_search(pagesTST, createString("12241.txt"));
-    // printf("NOME SEARCH PAGE: %s\n", getString(getNome(searchPage[0])));
-    // printf("Links: %d\n", getCountInLinks(searchPage[0]));
-    
-    // Page** resultPage = TST_search(getLinks(searchPage[0]), createString("20474.txt"));
-    
-    // printf("NOME RESULT PAGE: %s\n", getString(getNome(resultPage[0])));
-
-
+    fclose(fileGraph);
 
 
     /* ------------- Indexador -------------- */ 
@@ -127,38 +111,91 @@ int main(int argc, char *argv[])
 
     indexadorTST = searchAndIndex(indexadorTST, pagesTST, pathPage, stopWordsList, swCount);
 
-    TST* resultTST = (TST*)TST_search(indexadorTST, createString("abacate"));
-    searchAndPrint(resultTST);
-
-
-    // -------- Page Rank ----------
 
     /* -------- Calculando os Page Ranks ----------- */
 
     double stopValue = 1;
     int countIterations = 0;
     while(stopValue >= 1e-6){
-        // calcula page rank
-        printf("ITERAÇÃO: %d\n", countIterations++);
         calculatePageRank(pagesTST,countPages);
         stopValue = (double)((1.0/countPages) * calculateEndPageRank(pagesTST, 0.0));
-        printf("Stop Value: %lf\n", stopValue);
-        printf("-----------------------------------------------------------------------------\n");
+    }
+    
+
+
+    /* ---------- Processador de Consultas ---------- */
+
+    TST* firstTST = NULL;
+    TST* secondTST = NULL;
+
+    while(scanf("%[^\n]s", line) == 1){
+        scanf("\n");
+        int indice = 0;
+        String *linha = createString(line);
+        removeNewLine(linha);
+        printf("search:%s\n", getString(linha));
+
+        termo = strtok(line, " ");
+        String *termoBusca = createString(termo);
+        removeNewLine(termoBusca);
+
+        firstTST = (TST *)TST_search(indexadorTST, termoBusca);
+        Page **paginasComum = malloc(countPages * sizeof(Page *));
+        termo = strtok(NULL, " ");
+        if (termo == NULL)
+        {
+            paginasComum = TST_intersecao(firstTST, firstTST, paginasComum, &indice);
+        }
+        else
+        {
+            while (termo != NULL)
+            {
+                String *termoBusca = createString(termo);
+                removeNewLine(termoBusca);
+                secondTST = (TST *)TST_search(indexadorTST, termoBusca);
+                paginasComum = TST_intersecao(firstTST, secondTST, paginasComum, &indice);
+                termo = strtok(NULL, " ");
+            }
+        }
+
+        qsort(paginasComum, indice, sizeof(Page *), comparePR);
+        printf("pages:");
+
+        if(indice == 1){
+            printf("%s\n", getString(getNome(paginasComum[0])));
+            printf("pr:");
+            printf("%.15lf", getPageRank(paginasComum[0]));
+        }else{
+            for (int i = 0; i < indice; i++){
+                printf("%s ", getString(getNome(paginasComum[i])));
+            }
+            printf("\npr:");
+            for (int i = 0; i < indice; i++){
+                printf("%.15lf ", getPageRank(paginasComum[i]));
+            }
+        }
+        printf("\n");
+        
+        
     }
 
-
-
     // ---- Liberação de memória -----
-    freeListString(stopWordsList, swCount);
-    // freeListString(indexList, countPages);
-    // freePages(pages, countPages);
-    free(dir);
-    free(pathStopWords);
-    freeString(pathStopWordsString);
-    free(pathIndex);
-    freeString(pathIndexString);
-    free(dirAux);
-    free(line);
+    // freeListString(stopWordsList, swCount);
+    // freeString(pathStopWordsString);
+    // free(pathStopWords);
+    // free(pathIndex);
+    // free(dirAux);
+    // free(pathGraph);
+    // free(line);
+
+    //Liberando memoria pra lista de stopwords
+    // freeListString(stopWordsList, swCount);
+
+    //Liberando memoria pra TST de pages
+    // TST_Destroi(pagesTST);
+
+    //Liberando memoria pra TST de indexador
+    // TST_Destroi(indexadorTST);
 
     return 0;
 }

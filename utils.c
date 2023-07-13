@@ -2,6 +2,7 @@
 #include "math.h"
 #include "page.h"
 
+
 int verifyStopWord(char *word, char **stopWordsList, int countStopWords)
 {
     int i;
@@ -25,6 +26,22 @@ void searchAndPrint(TST* indexTST){
         searchAndPrint(getLeft(indexTST));
         searchAndPrint(getMid(indexTST));
         searchAndPrint(getRight(indexTST));
+    }
+}
+
+int comparePR(const void* a, const void* b) {
+    Page** valueA = (Page**)a;
+    Page** valueB = (Page**)b;
+
+    double pageRankA = getPageRank(*valueA);
+    double pageRankB = getPageRank(*valueB);
+
+    if (pageRankA > pageRankB) {
+        return -1;
+    } else if (pageRankA < pageRankB) {
+        return 1;
+    } else {
+        return compare(getNome(*valueA), getNome(*valueB));
     }
 }
 
@@ -53,28 +70,28 @@ double calculateSumInLinks(TST* inLinks, double sum, char* iteracao){
 void calculatePageRank(TST* pages, int countPages){
     if(pages){
         if(getValues(pages) != NULL){
-            // Page** pagesResult = (Page**)getValues(pages);
-            // Page* pageResult = pagesResult[0];
-            Page* pageResult = (Page*)getFirstElement(pages);
+        
+            TST* tstResult = (TST*)getValues(pages);
+            Page* pagina = (Page*)getFirstElement(tstResult);
 
             double baseValue = (1-0.85)/countPages;
-            TST* links = getLinks(pageResult);
-            printf("--> Page: %s\n", getString(getNome(pageResult)));
-            double sumInLinks = calculateSumInLinks(links, 0.0, getString(getNome(pageResult)));
+            TST* links = getLinks(pagina);
+            // printf("--> Page: %s\n", getString(getNome(pagina)));
+            double sumInLinks = calculateSumInLinks(links, 0.0, getString(getNome(pagina)));
            
             double pageRank = 0.0;
 
-            if(getCountOutLinks(pageResult) != 0){
+            if(getCountOutLinks(pagina) != 0){
                 pageRank = baseValue + 0.85*sumInLinks;
             }else{
-                pageRank = baseValue + (0.85*getPageRank(pageResult)) + 0.85*sumInLinks;
+                pageRank = baseValue + (0.85*getPageRank(pagina)) + 0.85*sumInLinks;
             }
             
-            setOldPageRank(pageResult, getPageRank(pageResult));
-            setPageRank(pageResult, pageRank);
+            setOldPageRank(pagina, getPageRank(pagina));
+            setPageRank(pagina, pageRank);
         
-            printf("Page: %s - PR: %f\n", getString(getNome(pageResult)), getPageRank(pageResult));
-            printf("Sum In Links: %f\n", sumInLinks);
+            // printf("Page: %s - PR: %lf\n", getString(getNome(pagina)), getPageRank(pagina));
+            // printf("Sum In Links: %f\n", sumInLinks);
             
         }
         
@@ -96,7 +113,7 @@ TST* searchAndIndex(TST * indexTST, TST *pages, char *pathPage, String **stopWor
         {
             TST* result = (TST*)getValues(pages);
             Page* pageResult = (Page*)getFirstElement(result);
-            printf("Page a ser indexada: %s\n", getString(getNome(pageResult)));
+            // printf("Page a ser indexada: %s\n", getString(getNome(pageResult)));
             indexTST = indexador(indexTST, pageResult, pathPage, stopWordsList, swCount);
 
         }
@@ -111,10 +128,11 @@ TST* searchAndIndex(TST * indexTST, TST *pages, char *pathPage, String **stopWor
 double calculateEndPageRank(TST* pages, double value){
     if(pages){
         if(getValues(pages) != NULL){
-            Page* pageResult = (Page*)getFirstElement(pages);
+            TST* tstResult = (TST*)getValues(pages);
+            Page* pagina = (Page*)getFirstElement(tstResult);
             // printf("Page: %s - PR: %f - OldPR: %f\n", getString(getNome(pageResult)), getPageRank(pageResult), getOldPageRank(pageResult));
             // printf("Diff: %lf\n", getPageRank(pageResult) - getOldPageRank(pageResult));
-            value += fabs(getPageRank(pageResult) - getOldPageRank(pageResult));
+            value += fabs(getPageRank(pagina) - getOldPageRank(pagina));
             // printf("Value: %lf\n", value);
         }
 
@@ -162,13 +180,12 @@ TST* indexador(TST *indexTST, Page *page, char *pathPage, String **stopWordsList
                     TST* result = (TST*) TST_search(indexTST, termoString);
                     if(result == NULL){
                         TST* newTST = NULL;
-                        newTST = TST_insert(newTST, termoString,(Page*) page);
+                        newTST = TST_insert(newTST, getNome(page),(Page*) page);
                         indexTST = TST_insert(indexTST, termoString,(TST*)newTST);
 
                     }else{
-                        TST* resultTST = (TST*)getValues(result);
-                        resultTST = TST_insert(resultTST, termoString, (Page*)page);
-                        // indexTST = TST_insert(indexTST, termoString, (TST*)resultTST);
+                        result = TST_insert(result, getNome(page),(Page*) page);
+                        //indexTST = TST_insert(indexTST, termoString, (TST*)resultTST);
                     }
                 } 
 

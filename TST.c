@@ -34,6 +34,11 @@ TST* getLeft(TST* node){
     return node->left;
 }
 
+void setValues(TST* node, void* val){
+    if(node == NULL) return;
+    node->val = val;
+}
+
 int getCountValues(TST* node){
     if(node == NULL) return 0;
     return node->countValues;
@@ -98,10 +103,19 @@ void* TST_search(TST* t, String* key) {
         return NULL;}
     else {
         // for(int i = 0; i < getCountValues(t); i++){
-        //     printf("i: %d - %s\n", i, getString(getNome(pages[i])));
+        //     printf("i: %d - %s\n", i, getString(getNome((Page*)t[i].val)));
         // }
 
         
         return t->val; }
 }
 
+void TST_Destroi(TST* t) {
+    if (t == NULL) { return; }
+    TST_Destroi(t->left);
+    TST_Destroi(t->mid);
+    TST_Destroi(t->right);
+    free(t->val);
+
+    free(t);
+}

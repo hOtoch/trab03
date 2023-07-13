@@ -8,27 +8,26 @@ String** leArquivo(String* path, int maxCount, int *count){
     char* line = (char*) malloc(sizeof(char)*100);
     size_t len = 0;
     FILE* arq = fopen(getString(path), "r");
+    String* auxLine;
 
     if(verificaArquivo(arq)){
         while(!feof(arq)){
             getline(&line, &len, arq);
-            String* auxLine = createString(line);
+            auxLine = createString(line);
             removeNewLine(auxLine);
             list[*count] = auxLine;
-        
-            // printf("%s\n", list[i]);
             *count = *count + 1;
 
             if(*count == maxCount){               
                 maxCount *= 2;
                 list = realloc(list, sizeof(String*)*maxCount);
             }
-           
         }
     }else{
         exit(1);
     }
 
+    //free(line);
     fclose(arq);
     return list;
     
