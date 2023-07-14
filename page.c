@@ -62,6 +62,25 @@ void setPageRank(Page* page, double pageRank){
     page->pageRank = pageRank;
 }
 
+void freePagesTST(void* t){
+    
+    if(t){
+        freePagesTST(getLeft(t));
+        freePagesTST(getMid(t));
+        freePagesTST(getRight(t));
+
+        t = (TST*)t;
+        if(getValues(t) != NULL){
+            freePage((Page*)getValues(t));
+        }
+        
+        free(t);
+    }
+
+}
+
+
+
 Page* newPage(char* nome, int countLinks){
     Page* page = (Page*)malloc(sizeof(Page));
     page->nome = createString(nome);
@@ -73,16 +92,18 @@ Page* newPage(char* nome, int countLinks){
     return page;
 }
 
-void freePages(Page** pages, int countPages){
+
+void freePage(Page* page){
+    freeString(page->nome);
+    TST_destroi(page->links, NULL);
+    free(page);
+}
+
+void freeArrayPage(Page** pages, int countPages){
     for(int i = 0; i < countPages; i++){
         freePage(pages[i]);
     }
     free(pages);
-}
-
-void freePage(Page* page){
-    free(page->nome);
-    free(page);
 }
 
 

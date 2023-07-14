@@ -56,6 +56,9 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "files.associations": {
     "sstream": "c",
-    "file.h": "c"
+    "file.h": "c",
+    "*.tcc": "c",
+    "string": "c",
+    "string_view": "c"
   }
 }

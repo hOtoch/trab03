@@ -5,13 +5,14 @@
 
 String** leArquivo(String* path, int maxCount, int *count){
     String** list = (String**)malloc(maxCount *sizeof(String*));
-    char* line = (char*) malloc(sizeof(char)*100);
-    size_t len = 0;
+    size_t len = 1000;
+    char* line = (char*) malloc(sizeof(char)*len);
     FILE* arq = fopen(getString(path), "r");
     String* auxLine;
 
     if(verificaArquivo(arq)){
         while(!feof(arq)){
+            
             getline(&line, &len, arq);
             auxLine = createString(line);
             removeNewLine(auxLine);
@@ -20,14 +21,13 @@ String** leArquivo(String* path, int maxCount, int *count){
 
             if(*count == maxCount){               
                 maxCount *= 2;
-                list = realloc(list, sizeof(String*)*maxCount);
+                list = realloc(list, sizeof(String*)*(maxCount));
             }
         }
     }else{
         exit(1);
     }
-
-    //free(line);
+    free(line);
     fclose(arq);
     return list;
     
@@ -35,18 +35,17 @@ String** leArquivo(String* path, int maxCount, int *count){
 
 TST* leArquivoTST(String* path, int maxCount, int *count){
     TST* rootGraph = NULL;
-    char* line = (char*) malloc(sizeof(char)*100);
-    size_t len = 0;
+    size_t len = 1000;
+    char* line = (char*) malloc(sizeof(char)*len);
     int i = 0;
     FILE* arq = fopen(getString(path), "r");
+    String* auxLine;
 
     if(verificaArquivo(arq)){
         while(!feof(arq)){
             getline(&line, &len, arq);
-            String* auxLine = createString(line);
+            auxLine = createString(line);
             removeNewLine(auxLine);
-
-
             TST* result = (TST*)TST_search(rootGraph, auxLine);
             if(result == NULL){
                 TST* value = NULL;
@@ -57,11 +56,12 @@ TST* leArquivoTST(String* path, int maxCount, int *count){
                 result = TST_insert(result, auxLine, newPage(getString(auxLine),0));
                 *count = *count + 1;
             }
+            freeString(auxLine);
         }
     }else{
         exit(1);
     }
-
+    free(line);
     fclose(arq);
     return rootGraph;
     

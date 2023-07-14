@@ -22,4 +22,7 @@ void calculatePageRank(TST* pages, int countPages);
 TST* searchAndIndex(TST * indexTST, TST *pages, char *pathPage, String **stopWordsList, int swCount);
 
 TST* indexador(TST* indexTST, Page *page, char *pathPage, String **stopWordsList, int swCount);
+
+void freeArray(void **ptr);
+
 #endif

@@ -1,6 +1,7 @@
 #include "utils.h"
 #include "math.h"
 #include "page.h"
+#include "TST.h"
 
 
 int verifyStopWord(char *word, char **stopWordsList, int countStopWords)
@@ -47,18 +48,16 @@ int comparePR(const void* a, const void* b) {
 
 double calculateSumInLinks(TST* inLinks, double sum, char* iteracao){
     if(inLinks){
+        String *iteracaoString = createString(iteracao);
         if(getValues(inLinks) != NULL){
-            // printf("InLinks\n");
             Page* page = (Page*)getFirstElement(inLinks);
-            // printf("Page: %s; PR: %f - OldPR: %f - CountOutLinks: %d\n", getString(getNome(page)), getPageRank(page), getOldPageRank(page), getCountOutLinks(page));
-            if(compare(createString(iteracao), getNome(page)) == 1){
+            if(compare(iteracaoString, getNome(page)) == 1){
                 sum += getOldPageRank(page)/fabs(getCountOutLinks(page));
             }else{
                 sum += getPageRank(page)/fabs(getCountOutLinks(page));
             }
-            // printf("Soma: %lf\n", sum);
         }
-
+        freeString(iteracaoString);
         sum = calculateSumInLinks(getLeft(inLinks), sum, iteracao);
         sum = calculateSumInLinks(getMid(inLinks), sum, iteracao);
         sum = calculateSumInLinks(getRight(inLinks), sum, iteracao);
@@ -76,7 +75,6 @@ void calculatePageRank(TST* pages, int countPages){
 
             double baseValue = (1-0.85)/countPages;
             TST* links = getLinks(pagina);
-            // printf("--> Page: %s\n", getString(getNome(pagina)));
             double sumInLinks = calculateSumInLinks(links, 0.0, getString(getNome(pagina)));
            
             double pageRank = 0.0;
@@ -89,9 +87,6 @@ void calculatePageRank(TST* pages, int countPages){
             
             setOldPageRank(pagina, getPageRank(pagina));
             setPageRank(pagina, pageRank);
-        
-            // printf("Page: %s - PR: %lf\n", getString(getNome(pagina)), getPageRank(pagina));
-            // printf("Sum In Links: %f\n", sumInLinks);
             
         }
         
@@ -130,10 +125,7 @@ double calculateEndPageRank(TST* pages, double value){
         if(getValues(pages) != NULL){
             TST* tstResult = (TST*)getValues(pages);
             Page* pagina = (Page*)getFirstElement(tstResult);
-            // printf("Page: %s - PR: %f - OldPR: %f\n", getString(getNome(pageResult)), getPageRank(pageResult), getOldPageRank(pageResult));
-            // printf("Diff: %lf\n", getPageRank(pageResult) - getOldPageRank(pageResult));
             value += fabs(getPageRank(pagina) - getOldPageRank(pagina));
-            // printf("Value: %lf\n", value);
         }
 
         value = calculateEndPageRank(getLeft(pages), value);
@@ -146,18 +138,20 @@ double calculateEndPageRank(TST* pages, double value){
 
 TST* indexador(TST *indexTST, Page *page, char *pathPage, String **stopWordsList, int swCount)
 {
-    char result[100];
-    char *line = (char *)malloc(sizeof(char) * 1000);
-    size_t len = 0;
+    char result[1000];
+    size_t len = 10000;
+    char *line = (char *)malloc(sizeof(char) * len);
     char *termo;
 
 
     strcpy(result, pathPage);
     strcat(result, getString(getNome(page))); /* Definindo o caminho dos arquivos */
-    removeNewLine(createString(result));
+    String* resultString = createString(result);
+    removeNewLine(resultString);
+    String *termoString;
 
 
-    FILE *filePage = fopen(result, "r");
+    FILE *filePage = fopen(getString(resultString), "r");
 
     if (verificaArquivo(filePage))
     {
@@ -169,7 +163,7 @@ TST* indexador(TST *indexTST, Page *page, char *pathPage, String **stopWordsList
             while (termo != NULL)
             {
                 /* Remove o \n e transforma todas as letras em lowcase */
-                String *termoString = createString(termo);
+                termoString = createString(termo);
                 toLowerCase(termoString);
                 removeNewLine(termoString);
 
@@ -190,17 +184,20 @@ TST* indexador(TST *indexTST, Page *page, char *pathPage, String **stopWordsList
                 } 
 
                 termo = strtok(NULL, " ");
+                freeString(termoString);
             }
         }
+         
         fclose(filePage);
-        return indexTST;
     }
     else
     {
         perror("Error: ");
         exit(1);
     }
-
+    freeString(resultString);
+    free(line);
+    return indexTST;
 }
 
 
@@ -212,8 +209,9 @@ int binarySearch(String **arr, int left, int right, char *key)
         int mid = left + (right - left) / 2;
         // printf("left = %d, right = %d, mid = %d\n", left, right,mid);
         // printf("comparando %s com %s\n", key, getString(arr[mid]));
-        int cmp = compare(createString(key), arr[mid]);
-
+        String* keyString = createString(key);
+        int cmp = compare(keyString, arr[mid]);
+        freeString(keyString);
         if (cmp == 0)
         {
             return mid;
@@ -226,4 +224,14 @@ int binarySearch(String **arr, int left, int right, char *key)
     }
 
     return -1;
+}
+
+
+void freeArray(void **ptr) {
+    if (ptr) {
+        for (size_t i = 0; ptr[i]; i++) {
+            free(ptr[i]);
+        }
+        free(ptr);
+    }
 }

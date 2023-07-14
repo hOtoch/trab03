@@ -24,15 +24,17 @@ int getCountValues(TST* node);
 
 void* getValues(TST* node);
 
+void freeTST(void* t);
+
 TST* create_node();
 
 int searchNGetCountValues(TST* t, String* key);
+
+void TST_destroi(TST* t,void(*freeFunction)(void*));
 
 TST* rec_search(TST* t, String* key, int d);
 
 void* TST_search(TST* t, String* key);
 
-
-void TST_Destroi(TST* t);
 
 #endif

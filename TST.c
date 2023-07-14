@@ -1,5 +1,4 @@
 #include "TST.h"
-#include "page.h"
 
 
 struct tst {
@@ -77,6 +76,29 @@ TST* rec_insert(TST* t, String* key, void* val, int d) {
     return t;
 }
 
+void freeTST(void* t){
+    if(t == NULL) return;
+    freeTST(getLeft(t));
+    freeTST(getMid(t));
+    freeTST(getRight(t));
+    free(t);
+}
+
+
+void TST_destroi(TST* t,void(*freeFunction)(void*)){
+    if(t){
+        TST_destroi(getLeft(t), freeFunction);
+        TST_destroi(getMid(t), freeFunction);
+        TST_destroi(getRight(t), freeFunction);
+       
+        if(freeFunction){
+           (*freeFunction)(getValues(t));
+        }
+    
+        free(t);
+    }
+}
+
 int searchNGetCountValues(TST* t, String* key){
     t = rec_search(t, key, 0);
     if(t == NULL) return 0;
@@ -110,12 +132,9 @@ void* TST_search(TST* t, String* key) {
         return t->val; }
 }
 
-void TST_Destroi(TST* t) {
-    if (t == NULL) { return; }
-    TST_Destroi(t->left);
-    TST_Destroi(t->mid);
-    TST_Destroi(t->right);
-    free(t->val);
+// Recebr pagina
+// Liberar esquerda / direita / meio
+// Liberar TST do valor -> Liberar Pagina -> Liberar String
 
-    free(t);
-}
+
+

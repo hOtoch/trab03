@@ -22,7 +22,8 @@ void setOldPageRank(Page* page, double oldPageRank);
 double getPageRank(Page* page);
 void setPageRank(Page* page, double pageRank);
 void freePage(Page* page);
-void freePages(Page** pages, int countPages);
+void freeArrayPage(Page** pages, int countPages);
+void freePagesTST(void* t);
 Page** TST_intersecao(TST* guia, TST* segunda, Page** resultTST, int* indice);
 
 #endif
